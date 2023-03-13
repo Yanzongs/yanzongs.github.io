@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Study - 模电亿些知识点总结 | Yanzongs.cn</title>
+
+    <meta name="description" content="&lt;p&gt;关于一些不经常看就很容易忘的模点知识点&lt;/p&gt;
+&lt;p&gt;实在是太多啦！&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Study - 模电亿些知识点总结 | Yanzongs.cn"  />
+    <meta property="og:description" content= "&lt;p&gt;关于一些不经常看就很容易忘的模点知识点&lt;/p&gt;
+&lt;p&gt;实在是太多啦！&lt;/p&gt;" />
+    <meta property="og:url" content="http://example.com/2023/02/Study-AnalogElectronics/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Yanzong Chan" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;关于一些不经常看就很容易忘的模点知识点&lt;/p&gt;
+&lt;p&gt;实在是太多啦！&lt;/p&gt;" />
+    <meta name="twitter:title" content="Study - 模电亿些知识点总结 | Yanzongs.cn"/>
+    <meta name="twitter:description" content="&lt;p&gt;关于一些不经常看就很容易忘的模点知识点&lt;/p&gt;
+&lt;p&gt;实在是太多啦！&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;关于一些不经常看就很容易忘的模点知识点&lt;/p&gt;
+&lt;p&gt;实在是太多啦！&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Yanzong Chan" },
+            "@type": "BlogPosting",
+            "url": "http://example.com/2023/02/Study-AnalogElectronics/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://example.comundefined"
+            },
+            "name": "Yanzong Chan"
+            },
+            "headline": "Study - 模电亿些知识点总结 | Yanzongs.cn",
+            "datePublished": "2023-02-04T16:00:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "http://example.com/2023/02/Study-AnalogElectronics/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            valine: {
+                enable: true,
+                appId: "qJg820m0oTgXC3L2anmHG52A-gzGzoHsz",
+                appKey: "DeTQdlGncT3OVBrk2KHC8yZ3",
+                placeholder: "Hello World!",
+                avatar: "",
+                pageSize: "10",
+                lang: "zh-CN",
+                visitor: false,
+                highlight: false,
+                recordIP: false,
+                emojiCDN: "",
+                enableQQ: false,
+                requiredFields: []
+            },
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Yanzongs.cn</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives/">文章</a>
+                
+                <a href="/message/">留言</a>
+                
+                <a href="/friends/">链接</a>
+                
+                <a href="/about/">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/yanzongs">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="">
+        <ion-icon name=""></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives/">文章</a>
+                    
+                    <a href="/message/">留言</a>
+                    
+                    <a href="/friends/">链接</a>
+                    
+                    <a href="/about/">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clf6nznem001zm4twec1o5nyc" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Study - 模电亿些知识点总结
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-02-04T16:00:00.000Z" itemprop="datePublished">2023-02-05</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/STUDY/">STUDY</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B/" rel="tag">电子信息工程</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>关于一些不经常看就很容易忘的模点知识点</p>
+<p>实在是太多啦！</p>
+<span id="more"></span>
+<p><br></p>
+<p>重点：</p>
+<p>1.负反馈类型的判断</p>
+<p>2.振荡条件的判断</p>
+<p>3.引脚电压判断管子类型</p>
+<p>BJT：</p>
+<p>—&gt; 中间电压值为基极 </p>
+<p>—&gt; 相差在0.2~0.6V以内的电压值为发射极 </p>
+<p>—&gt; V~BE~小于0.6V为锗材料，大于等于为硅材料 </p>
+<p>—&gt; 最后的电压值为集电极 </p>
+<p>—&gt; V~B~大于V~E~为NPN型，反之为PNP型</p>
+<p>4.电路作用：</p>
+<p>· 差分式放大电路（输入级）：抑制零点漂移、提高共模抑制比</p>
+<p>· 共射放大电路（中间级）：增大电压倍数</p>
+<p>· 共集极放大电路/电压跟随器（输出级）：提高带载能力</p>
+<p>· 镜像电流源有源负载：将左半部分放大管的电流变化量转换到右边</p>
+<p><br></p>
+<h3 id="放大电路的各种耦合方式的特点"><a href="#放大电路的各种耦合方式的特点" class="headerlink" title="放大电路的各种耦合方式的特点"></a><strong>放大电路的各种耦合方式的特点</strong></h3><ol>
+<li>直接耦合：两个电路元件直接相连，简单但存在失真。</li>
+<li>变压器耦合：通过变压器将输入信号耦合到输出端，可以提高阻抗匹配能力。</li>
+<li>电容耦合：通过电容将输入信号耦合到输出端，对于高频信号效果很好。</li>
+<li>电感耦合：通过电感将输入信号耦合到输出端，对于低频信号效果很好。</li>
+</ol>
+<p>每种耦合方式都有其优缺点，选择耦合方式需要根据放大电路的应用场景、信号特性等进行灵活选择。</p>
+<p><br></p>
+<h3 id="若想输出电压信号并保持高增益，带有源负载的差分式放大电路对负载阻值有何要求"><a href="#若想输出电压信号并保持高增益，带有源负载的差分式放大电路对负载阻值有何要求" class="headerlink" title="若想输出电压信号并保持高增益，带有源负载的差分式放大电路对负载阻值有何要求?"></a><strong>若想输出电压信号并保持高增益，带有源负载的差分式放大电路对负载阻值有何要求?</strong></h3><ol>
+<li>负载阻值应该高于源负载的阻值。这样可以最大化放大器的增益，并保持信号的纯度。</li>
+<li>负载阻值应该与放大器的内部阻值相匹配。这样可以确保电路中不会有额外的电阻损耗，从而降低信号质量。</li>
+<li>负载阻值不应该太低。这样可能会导致电路的稳定性问题，从而降低信号的质量。</li>
+</ol>
+<p>因此，选择负载阻值需要充分考虑电路的增益要求，以及信号的质量和稳定性的要求。</p>
+<p><br></p>
+<h3 id="稳压二极管的工作原理是利用PN结的"><a href="#稳压二极管的工作原理是利用PN结的" class="headerlink" title="稳压二极管的工作原理是利用PN结的"></a><strong>稳压二极管的工作原理是利用PN结的</strong></h3><p>反向击穿特性</p>
+<p><br></p>
+<p>FET是场效应管（MOS管），输出特性曲线包括<strong>可变电阻</strong>、<strong>恒流区</strong>、<strong>截止区</strong></p>
+<p>BJT是三极管，输出特性曲线包括<strong>饱和区</strong>、<strong>放大区</strong>、<strong>截止区</strong></p>
+<blockquote>
+<p>工作于放大区：发射结正偏，集电结反偏</p>
+<p>工作于饱和区：发射结和集电结均正偏</p>
+<p>工作于截止区：发射结和集电结均反偏</p>
+</blockquote>
+<p><br></p>
+<h3 id="有哪些瞬时信号反向？"><a href="#有哪些瞬时信号反向？" class="headerlink" title="有哪些瞬时信号反向？"></a><strong>有哪些瞬时信号反向？</strong></h3><p>1.共源极放大电路栅极输入漏极输出</p>
+<p>2.共射极放大电路基极输入集电极输出</p>
+<p>3.反向输入的运放</p>
+<p><br></p>
+<h3 id="电压跟随器有哪些？"><a href="#电压跟随器有哪些？" class="headerlink" title="电压跟随器有哪些？"></a><strong>电压跟随器有哪些？</strong></h3><p>1.直接负反馈的运放</p>
+<p>2.共漏极放大电路</p>
+<p>3.共集极放大电路</p>
+<p><br></p>
+<h3 id="为了稳定静态工作点，应该在放大电路中引入"><a href="#为了稳定静态工作点，应该在放大电路中引入" class="headerlink" title="为了稳定静态工作点，应该在放大电路中引入"></a><strong>为了稳定静态工作点，应该在放大电路中引入</strong></h3><p>直流负反馈</p>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2023/02/Book-DomesticThird/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Book - 《羊道·春牧场》简评
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/02/Book-DomesticSecond/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Book - 《兄弟》简评</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Study - 模电亿些知识点总结 - Yanzongs.cn&url=http%3A%2F%2Fexample.com%2F2023%2F02%2FStudy-AnalogElectronics%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Study - 模电亿些知识点总结 - Yanzongs.cn&u=http%3A%2F%2Fexample.com%2F2023%2F02%2FStudy-AnalogElectronics%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Study - 模电亿些知识点总结 - Yanzongs.cn&url=http://example.com/2023/02/Study-AnalogElectronics/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+<section class="comments">
+    <div id="valine-container"></div>
+</section>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+
+
+
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BOOK/">BOOK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CREATION/">CREATION</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HEXO/">HEXO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-FPGA/">IC & FPGA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PROJRECT/">PROJRECT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/STUDY/">STUDY</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C51/" rel="tag">C51</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCU/" rel="tag">MCU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Verilog/" rel="tag">Verilog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%82%9F/" rel="tag">感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8C/" rel="tag">指导手册</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%92%9F%E6%A0%91/" rel="tag">时钟树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B/" rel="tag">电子信息工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%97%E8%AF%8D/" rel="tag">诗词</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/undefined/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/FPGA%20-%20VerilogGrammar/">FPGA - Verilog语法</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Book-DomesticThird/">Book - 《羊道·春牧场》简评</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Study-AnalogElectronics/">Study - 模电亿些知识点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Book-DomesticSecond/">Book - 《兄弟》简评</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Yanzongs.cn &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

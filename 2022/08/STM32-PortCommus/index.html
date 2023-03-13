@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>STM32 - 串口通信(HAL库) | Yanzongs.cn</title>
+
+    <meta name="description" content="&lt;blockquote&gt;
+&lt;p&gt;为什么要用HAL库？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用方便，可以完全使用GUI配置、支持更多的芯片型号和开发板、良好的封装与抽象、Easy上手和开发&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有什么缺点？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封装层次较高，造成稍微的性能损失&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "STM32 - 串口通信(HAL库) | Yanzongs.cn"  />
+    <meta property="og:description" content= "&lt;blockquote&gt;
+&lt;p&gt;为什么要用HAL库？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用方便，可以完全使用GUI配置、支持更多的芯片型号和开发板、良好的封装与抽象、Easy上手和开发&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有什么缺点？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封装层次较高，造成稍微的性能损失&lt;/p&gt;" />
+    <meta property="og:url" content="http://example.com/2022/08/STM32-PortCommus/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Yanzong Chan" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;blockquote&gt;
+&lt;p&gt;为什么要用HAL库？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用方便，可以完全使用GUI配置、支持更多的芯片型号和开发板、良好的封装与抽象、Easy上手和开发&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有什么缺点？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封装层次较高，造成稍微的性能损失&lt;/p&gt;" />
+    <meta name="twitter:title" content="STM32 - 串口通信(HAL库) | Yanzongs.cn"/>
+    <meta name="twitter:description" content="&lt;blockquote&gt;
+&lt;p&gt;为什么要用HAL库？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用方便，可以完全使用GUI配置、支持更多的芯片型号和开发板、良好的封装与抽象、Easy上手和开发&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有什么缺点？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封装层次较高，造成稍微的性能损失&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;blockquote&gt;
+&lt;p&gt;为什么要用HAL库？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用方便，可以完全使用GUI配置、支持更多的芯片型号和开发板、良好的封装与抽象、Easy上手和开发&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有什么缺点？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封装层次较高，造成稍微的性能损失&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Yanzong Chan" },
+            "@type": "BlogPosting",
+            "url": "http://example.com/2022/08/STM32-PortCommus/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://example.comundefined"
+            },
+            "name": "Yanzong Chan"
+            },
+            "headline": "STM32 - 串口通信(HAL库) | Yanzongs.cn",
+            "datePublished": "2022-08-13T16:00:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "http://example.com/2022/08/STM32-PortCommus/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            valine: {
+                enable: true,
+                appId: "qJg820m0oTgXC3L2anmHG52A-gzGzoHsz",
+                appKey: "DeTQdlGncT3OVBrk2KHC8yZ3",
+                placeholder: "Hello World!",
+                avatar: "",
+                pageSize: "10",
+                lang: "zh-CN",
+                visitor: false,
+                highlight: false,
+                recordIP: false,
+                emojiCDN: "",
+                enableQQ: false,
+                requiredFields: []
+            },
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Yanzongs.cn</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives/">文章</a>
+                
+                <a href="/message/">留言</a>
+                
+                <a href="/friends/">链接</a>
+                
+                <a href="/about/">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/yanzongs">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="">
+        <ion-icon name=""></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives/">文章</a>
+                    
+                    <a href="/message/">留言</a>
+                    
+                    <a href="/friends/">链接</a>
+                    
+                    <a href="/about/">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clf6nznek001um4tw1ed42de7" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      STM32 - 串口通信(HAL库)
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-08-13T16:00:00.000Z" itemprop="datePublished">2022-08-14</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/IC-FPGA/">IC & FPGA</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B/" rel="tag">电子信息工程</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <blockquote>
+<p>为什么要用HAL库？</p>
+</blockquote>
+<p>使用方便，可以完全使用GUI配置、支持更多的芯片型号和开发板、良好的封装与抽象、Easy上手和开发</p>
+<blockquote>
+<p>有什么缺点？</p>
+</blockquote>
+<p>封装层次较高，造成稍微的性能损失</p>
+<span id="more"></span>
+<p><br></p>
+<h3 id="STM32cubemx部分"><a href="#STM32cubemx部分" class="headerlink" title="STM32cubemx部分"></a><strong>STM32cubemx部分</strong></h3><blockquote>
+<p>以使用stm32系列的NUCLEO-F03RB为例</p>
+</blockquote>
+<p><br></p>
+<h4 id="1-配置时钟"><a href="#1-配置时钟" class="headerlink" title="1.配置时钟"></a><strong>1.配置时钟</strong></h4><p>选择STM32F103RCTx系列芯片，配置时钟的同时会自动配置IO口引脚</p>
+<div align=center><img src="https://img-blog.csdnimg.cn/cfa73c30d6ed4543ac7a947b84c5957b.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1F4aWFvZmVpXw==,size_16,color_FFFFFF,t_70#pic_center" width="  "></div>
+
+<p>· HAL库串口发送/接收函数</p>
+<pre><code class="lang-c">/* 串口发送数据，使用超时管理机制 */
+HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout); 
+/* 串口接收数据，使用超时管理机制 */
+HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout); 
+/* 串口中断模式发送 */
+HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size); 
+/* 串口中断模式接收 */ 
+HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size); 
+/* 串口DMA模式发送 */
+HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size); 
+/* 串口DMA模式接收 */
+HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+</code></pre>
+<pre><code class="lang-c">/* 串口中断处理函数 */
+HAL_StatusTypeDef HAL_UART_IRQHandler(UART_HandleTypeDef *huart); 
+/* 串口发送中断回调函数 */
+HAL_StatusTypeDef HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart); 
+/* 串口发送一半中断回调函数（用的较少） */
+HAL_StatusTypeDef HAL_UART_TxHalfCpltCallback(UART_HandleTypeDef *huart); 
+/* 串口接收中断回调函数 */
+HAL_StatusTypeDef HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart); 
+/* 串口接收一半回调函数（用的较少） */
+HAL_StatusTypeDef HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart); 
+/* 串口接收错误函数 */
+HAL_StatusTypeDef HAL_UART_ErrorCallback();
+</code></pre>
+<p><strong>·</strong> 参数解释：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UART_HandleTypeDef * huart</td>
+<td>串口号</td>
+</tr>
+<tr>
+<td>uint8_t * pData</td>
+<td>存放数据的数组</td>
+</tr>
+<tr>
+<td>uint16_t Size</td>
+<td>接收的数据长度</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>例如：</p>
+<pre><code class="lang-c">HAL_UART_Receive_IT(&amp;huart1, (uint8_t *)&amp;aRxBuffer, 1);
+</code></pre>
+<p><br></p>
+<p>中断进行完之后，并不会直接退出，而是会进入中断回调函数中，我们在其中写入代码即可</p>
+<pre><code class="lang-c">void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+&#123;
+    /* 用户自定义的代码 */
+&#125;
+</code></pre>
+<p><br></p>
+<h3 id="发送"><a href="#发送" class="headerlink" title="发送"></a><strong>发送</strong></h3><blockquote>
+<p>一般HAL_UART_Transmit()就够用了。</p>
+</blockquote>
+<p><strong>·</strong> 重定向printf函数</p>
+<pre><code class="lang-c">#ifdef __GNUC__ 
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch) 
+#else 
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f) 
+#endif PUTCHAR_PROTOTYPE 
+&#123; 
+    HAL_UART_Transmit(&amp;huart2, (uint8_t *)&amp;ch, 1, 0xFFFF); return ch; 
+&#125;
+</code></pre>
+<p><strong>·</strong> （扩展）优雅的Log系统</p>
+<pre><code class="lang-c">[LOG]:usart1_buffer:log hello warning hello error hello 
+[LOG]:Some LOG occur 
+[LOG]:Good morning! 
+[WARNING]:Some warning! occur 
+[LOG]:Good morning! 
+[ERROR]:../Core/Src/main.c:200:Some ERROR!! occur 
+[LOG]:Good morning!
+</code></pre>
+<p><strong>·</strong> 怎么做到在前面自动标记log的种类，并且根据打印error所在位置呢？</p>
+<pre><code class="lang-c">#define __DEBUG__ 
+#ifdef __DEBUG__ 
+#define LOG(fmt, ...) printf(&quot;[LOG]:&quot; fmt &quot;\r\n&quot;, ##__VA_ARGS__) 
+#define LOG_WARNING(fmt, ...) printf(&quot;[WARNING]:&quot; fmt &quot;\r\n&quot;, ##__VA_ARGS__) 
+#define LOG_ERROR(fmt, ...) printf(&quot;[ERROR]:%s:%d:&quot; fmt &quot;\r\n&quot;, __FILE__, __LINE__, ##__VA_ARGS__) 
+#elif 
+#define LOG(fmt, ...) 
+#define LOG_WARNING(fmt, ...) 
+#define LOG_ERROR(fmt, ...) 
+#endif
+</code></pre>
+<blockquote>
+<p>关于可变参数宏和C语言的一些预定义的宏，详细用法参考微软文档：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/cpp/preprocessor/variadic-macros?view=msvc-170">可变参数宏 | Microsoft Docs</a></p>
+</blockquote>
+<p>这样相当于我们对printf又做了一层封装，实现了对不同log进行分类，并且由于是编译期展开的，所以 是零成本的抽象，不会对运行时性能造成影响。 </p>
+<p>使用起来也很简单，和printf的用法一样。</p>
+<pre><code class="lang-c">LOG(&quot;Some LOG occur %s&quot;, your_log); 
+LOG_ERROR(&quot;Some ERROR!! occur %s&quot;, your_error); 
+LOG_WARNING(&quot;Some WARNING! occur %s&quot;, your_warning);
+</code></pre>
+<p><br></p>
+<h3 id="接收"><a href="#接收" class="headerlink" title="接收"></a><strong>接收</strong></h3><p>接收要比较麻烦，因为单片机不知道你什么时候来数据，而在你没来数据的时候也不能干等着，因此就 要涉及到中断，HAL库中涉及到的就是这两个函数。</p>
+<pre><code class="lang-c">HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);/* 串口中断模式接收 */
+HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);/* 串口DMA模式接收 */
+</code></pre>
+<p>HAL_UART_Receive_IT这个在HAL库中的实现有点坑，只能接收到定长的数据然后触发中断，没办法处 理不定长的数据，而且容易丢数据，不推荐使用。 </p>
+<p>这里的解决方案是利用闲时中断加上DMA来实现不定长数据的接收和处理。</p>
+<p><br></p>
+<h3 id="闲时中断加上DMA"><a href="#闲时中断加上DMA" class="headerlink" title="闲时中断加上DMA"></a><strong>闲时中断加上DMA</strong></h3><p>关于闲时中断和DMA 的详细原理，推荐阅读博客：<a target="_blank" rel="noopener" href="https://guyuehome.com/36277">STM32 HAL CubeMX 串口IDLE接收空闲中断+DMA - 古月居 (guyuehome.com)</a></p>
+<p>具体操作分四步走。 </p>
+<p>1.在cubeMX里面打开串口中断和配置dma</p>
+<p>2.在串口初始化的时候加上这两句：</p>
+<pre><code class="lang-c">__HAL_UART_ENABLE_IT(&amp;huart1, UART_IT_IDLE);/* 启用闲时中断标识符 */
+HAL_UART_Receive_DMA(&amp;huart1, usart1_buffer, BUF_MAX_SIZE);/* 开启串口接收dma */
+</code></pre>
+<p>此处的usart1_buffer，BUF_MAX_SIZE为:</p>
+<pre><code class="lang-c">#define BUF_MAX_SIZE 128 /* buffer大小 */
+uint8_t usart1_buffer[BUF_MAX_SIZE]; /* dma接收buffer */
+</code></pre>
+<p>3.在串口的中断回调函数中加上这几句</p>
+<pre><code class="lang-c">void USART1_IRQHandler(void) 
+&#123; 
+    /* USER CODE BEGIN USART1_IRQn 0 */ 
+    /* 最好加在HAL_UART_IRQHandler前，防止回调的代码影响idle flag */
+    if (__HAL_UART_GET_FLAG(&amp;huart1, UART_FLAG_IDLE) != RESET)/* 判断是否idle */
+    &#123; 
+        USER_UART_IDLECallback(&amp;huart1);/* 调用自己的Idle回调函数 */
+    &#125; 
+    /* USER CODE END USART1_IRQn 0 */ 
+    HAL_UART_IRQHandler(&amp;huart1); 
+    /* USER CODE BEGIN USART1_IRQn 1 */ 
+
+    /* USER CODE END USART1_IRQn 1 */ 
+&#125;
+</code></pre>
+<p>4.最后就是写你自己的中断回调函数啦</p>
+<pre><code class="lang-c">void USER_UART_IDLECallback(UART_HandleTypeDef *huart)/* 自定义函数 */
+&#123; 
+    HAL_UART_DMAStop(huart);/* 停下DMA */
+    int len = 0;/* 接收数据长度 */
+    uint8_t *buffer;/* buffer指针 */
+    if (huart-&gt;Instance == huart1.Instance)
+    &#123; 
+        len = BUF_MAX_SIZE - __HAL_DMA_GET_COUNTER(&amp;hdma_usart1_rx); 
+        buffer = usart1_buffer; 
+    &#125; 
+    /* 现在你有了接收到数据的长度len和数据的buffer指针了 
+       你可以做你任何想做的... */
+    memset(buffer, 0, len);/* buffer清空 */ 
+    HAL_UART_Receive_DMA(huart, buffer, BUF_MAX_SIZE);/* 重新开启dma */
+    __HAL_UART_CLEAR_IDLEFLAG(huart);/* 清空idle flag */
+&#125;
+</code></pre>
+<p><br></p>
+<h3 id="（扩展）指令解析"><a href="#（扩展）指令解析" class="headerlink" title="（扩展）指令解析"></a><strong>（扩展）指令解析</strong></h3><p>现在我们能接收不定长的数据了，数据有了，但是要怎么解析比较方便呢，这里整理了一套还算好用的指令解析的方法，给大家分享一下。 </p>
+<p>受main函数的传入参数的启发，我们可以将一次传输的字符串进行分割，变成argc、argv 的形式。 在IDLE回调函数中进行扩展。</p>
+<pre><code class="lang-c">void USER_UART_IDLECallback(UART_HandleTypeDef *huart) 
+&#123; 
+    HAL_UART_DMAStop(huart); 
+
+    char **argv = (char **)malloc(sizeof(char *) * 10); /* 参数值-字符串-二维数组 */ 
+    int argc = 0; /* 参数个数 */
+    int tem_p = 0; 
+    int len = 0;
+    uint8_t *buffer; 
+    if (huart-&gt;Instance == huart1.Instance) 
+    &#123; 
+        len = BUF_MAX_SIZE - __HAL_DMA_GET_COUNTER(&amp;hdma_usart1_rx);
+        LOG(&quot;usart1_buffer:%s&quot;, usart1_buffer); 
+        buffer = usart1_buffer; 
+    &#125; 
+    /* 现在你有了接收到数据的长度len和数据的buffer指针了 
+       将buffer里面的数据加工,处理为argc，argv的形式 */
+    buffer[len++] = &#39; &#39;; 
+    buffer[len++] = &#39;a&#39;; 
+    for (int i = 0; i &lt; len; i++) 
+    &#123; 
+        if (buffer[i] == &#39; &#39; || i == len - 1) 
+        &#123; 
+            argv[argc] = (char *)malloc(sizeof(char) * (i - tem_p + 1));
+            /* 注意，此 处malloc了，一定要记得free掉内存 */
+            memcpy(argv[argc], buffer + tem_p, i - tem_p); 
+            argv[argc][i - tem_p] = &#39;\0&#39;; 
+            tem_p = i + 1; 
+            argc++; 
+            if (argc &gt;= 10) break; 
+        &#125; 
+    &#125; /* 将argc,argv进行解析 */
+    arg_prase(argc, argv); 
+    memset(buffer, 0, len); 
+
+    for (int i = 0; i &lt; argc; i++) 
+    &#123; 
+        free(argv[i]);//释放内存 
+    &#125; free(argv);/* 释放内存 */
+    HAL_UART_Receive_DMA(huart, buffer, BUF_MAX_SIZE);
+    __HAL_UART_CLEAR_IDLEFLAG(huart); 
+&#125;
+</code></pre>
+<p>arg_prase的定义如下：</p>
+<pre><code class="lang-c">uint8_t is_str_equal(const char *str_p1, char *str_p2) 
+&#123; 
+    int i = 0; 
+    while (str_p1[i]) 
+    &#123; 
+        i++; 
+        if (str_p1[i] != str_p2[i]) 
+            return 0; 
+    &#125; 
+    return 1; 
+&#125; 
+
+void arg_prase(int argc, char **argv) 
+&#123; 
+    for (int i = 0; i &lt; argc; i++) 
+    &#123; 
+        if (is_str_equal(&quot;hello&quot;, argv[i])) 
+        &#123; 
+            LOG(&quot;Good morning!&quot;); 
+        &#125; 
+        else if (is_str_equal(&quot;log&quot;, argv[i])) 
+        &#123; 
+            LOG(&quot;Some LOG occur&quot;); 
+        &#125; 
+        else if (is_str_equal(&quot;error&quot;, argv[i])) 
+        &#123; 
+            LOG_ERROR(&quot;Some ERROR!! occur&quot;); 
+        &#125; 
+        else if (is_str_equal(&quot;warning&quot;, argv[i])) 
+        &#123; 
+            LOG_WARNING(&quot;Some warning! occur&quot;); 
+        &#125; 
+    &#125;
+&#125;
+</code></pre>
+<p><br></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>以上就是STM32串口通信的所有内容，理论基础学完，更重要的是实践操作，多打代码、多实践使用，百炼成钢、熟能生巧！</p>
+<p><br></p>
+<hr>
+<center>ENDING</center>
+<center>感兴趣可以分享给身边的小伙伴哦！</center>
+
+<hr>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/08/HEXO-Frontmatter/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Hexo - Post Frontmatter书写操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/CREATION-SakuraPorm/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Porm - 樱花词五首</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=STM32 - 串口通信(HAL库) - Yanzongs.cn&url=http%3A%2F%2Fexample.com%2F2022%2F08%2FSTM32-PortCommus%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=STM32 - 串口通信(HAL库) - Yanzongs.cn&u=http%3A%2F%2Fexample.com%2F2022%2F08%2FSTM32-PortCommus%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=STM32 - 串口通信(HAL库) - Yanzongs.cn&url=http://example.com/2022/08/STM32-PortCommus/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+<section class="comments">
+    <div id="valine-container"></div>
+</section>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+
+
+
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BOOK/">BOOK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CREATION/">CREATION</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HEXO/">HEXO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-FPGA/">IC & FPGA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PROJRECT/">PROJRECT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/STUDY/">STUDY</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C51/" rel="tag">C51</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCU/" rel="tag">MCU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Verilog/" rel="tag">Verilog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%82%9F/" rel="tag">感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8C/" rel="tag">指导手册</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%92%9F%E6%A0%91/" rel="tag">时钟树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B/" rel="tag">电子信息工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%97%E8%AF%8D/" rel="tag">诗词</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/undefined/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/FPGA%20-%20VerilogGrammar/">FPGA - Verilog语法</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Book-DomesticThird/">Book - 《羊道·春牧场》简评</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Study-AnalogElectronics/">Study - 模电亿些知识点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Book-DomesticSecond/">Book - 《兄弟》简评</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Yanzongs.cn &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>STM32 - 系统时钟树分析 | Yanzongs.cn</title>
+
+    <meta name="description" content="&lt;p&gt;我在刚开始接触STM32的时候看到它的&lt;code&gt;时钟系统/时钟树&lt;/code&gt;，都会感觉有点复杂、乱乱懵懵的：&lt;/p&gt;
+&lt;p&gt;这是个什么？它想要告诉我什么？我应该怎么学习？&lt;/p&gt;
+&lt;p&gt;幸好一开始有学院的学长带着我们了解了一下，自己也在相关网站上查了一查，特此记录一下。&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "STM32 - 系统时钟树分析 | Yanzongs.cn"  />
+    <meta property="og:description" content= "&lt;p&gt;我在刚开始接触STM32的时候看到它的&lt;code&gt;时钟系统/时钟树&lt;/code&gt;，都会感觉有点复杂、乱乱懵懵的：&lt;/p&gt;
+&lt;p&gt;这是个什么？它想要告诉我什么？我应该怎么学习？&lt;/p&gt;
+&lt;p&gt;幸好一开始有学院的学长带着我们了解了一下，自己也在相关网站上查了一查，特此记录一下。&lt;/p&gt;" />
+    <meta property="og:url" content="http://example.com/2022/08/STM32-SystemClock/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Yanzong Chan" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;我在刚开始接触STM32的时候看到它的&lt;code&gt;时钟系统/时钟树&lt;/code&gt;，都会感觉有点复杂、乱乱懵懵的：&lt;/p&gt;
+&lt;p&gt;这是个什么？它想要告诉我什么？我应该怎么学习？&lt;/p&gt;
+&lt;p&gt;幸好一开始有学院的学长带着我们了解了一下，自己也在相关网站上查了一查，特此记录一下。&lt;/p&gt;" />
+    <meta name="twitter:title" content="STM32 - 系统时钟树分析 | Yanzongs.cn"/>
+    <meta name="twitter:description" content="&lt;p&gt;我在刚开始接触STM32的时候看到它的&lt;code&gt;时钟系统/时钟树&lt;/code&gt;，都会感觉有点复杂、乱乱懵懵的：&lt;/p&gt;
+&lt;p&gt;这是个什么？它想要告诉我什么？我应该怎么学习？&lt;/p&gt;
+&lt;p&gt;幸好一开始有学院的学长带着我们了解了一下，自己也在相关网站上查了一查，特此记录一下。&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;我在刚开始接触STM32的时候看到它的&lt;code&gt;时钟系统/时钟树&lt;/code&gt;，都会感觉有点复杂、乱乱懵懵的：&lt;/p&gt;
+&lt;p&gt;这是个什么？它想要告诉我什么？我应该怎么学习？&lt;/p&gt;
+&lt;p&gt;幸好一开始有学院的学长带着我们了解了一下，自己也在相关网站上查了一查，特此记录一下。&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Yanzong Chan" },
+            "@type": "BlogPosting",
+            "url": "http://example.com/2022/08/STM32-SystemClock/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://example.comundefined"
+            },
+            "name": "Yanzong Chan"
+            },
+            "headline": "STM32 - 系统时钟树分析 | Yanzongs.cn",
+            "datePublished": "2022-08-14T16:00:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "http://example.com/2022/08/STM32-SystemClock/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            valine: {
+                enable: true,
+                appId: "qJg820m0oTgXC3L2anmHG52A-gzGzoHsz",
+                appKey: "DeTQdlGncT3OVBrk2KHC8yZ3",
+                placeholder: "Hello World!",
+                avatar: "",
+                pageSize: "10",
+                lang: "zh-CN",
+                visitor: false,
+                highlight: false,
+                recordIP: false,
+                emojiCDN: "",
+                enableQQ: false,
+                requiredFields: []
+            },
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Yanzongs.cn</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives/">文章</a>
+                
+                <a href="/message/">留言</a>
+                
+                <a href="/friends/">链接</a>
+                
+                <a href="/about/">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/yanzongs">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="">
+        <ion-icon name=""></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives/">文章</a>
+                    
+                    <a href="/message/">留言</a>
+                    
+                    <a href="/friends/">链接</a>
+                    
+                    <a href="/about/">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clf6nzneo0024m4tw6hf8c317" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      STM32 - 系统时钟树分析
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-08-14T16:00:00.000Z" itemprop="datePublished">2022-08-15</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/IC-FPGA/">IC & FPGA</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%B6%E9%92%9F%E6%A0%91/" rel="tag">时钟树</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>我在刚开始接触STM32的时候看到它的<code>时钟系统/时钟树</code>，都会感觉有点复杂、乱乱懵懵的：</p>
+<p>这是个什么？它想要告诉我什么？我应该怎么学习？</p>
+<p>幸好一开始有学院的学长带着我们了解了一下，自己也在相关网站上查了一查，特此记录一下。</p>
+<span id="more"></span>
+<p><br></p>
+<h3 id="导读"><a href="#导读" class="headerlink" title="导读"></a><strong>导读</strong></h3><p>我们可以把MCU的运行比作人体的运行一样，人最重要的是什么？是心跳！而心脏对于人体好比时钟对于MCU。</p>
+<p>微控制器(MCU)的运行要靠周期性的时钟脉冲来驱动，而这个脉冲的始源往往是由外部晶体振荡器提供时钟输入，最终转换为多个外部设备的周期性运作。</p>
+<p><strong>时钟频率决定运算速度！</strong></p>
+<p>在数字电路中，通常由12个上升沿触发一次操作，如果要单片机执行一条汇编指令则需要若干次操作，即需要若干机器周期。这种时钟“能量”的传递路径犹如大树的养分由主干流向个分支，因此称为<code>时钟树</code>。</p>
+<p><br></p>
+<blockquote>
+<p>❓Q：在STM32中每个外设都有其单独的时钟，在使用某个外设之前必须打开该外设的时钟，为什么要这么麻烦来设置每一个外设的时钟而不是将所有外设的时钟统一打开？</p>
+<p>❗A：因为STM32的外设繁多，外设的运作所需要的最佳时钟各不相同 ，如果所有时钟同时运行会给MCU带来极大的负载，所以STM32采取自助餐式的时钟管理方式：随用随开。</p>
+</blockquote>
+<p><br></p>
+<p><strong>·</strong> 认识STM32的时钟管理方式后就要对其时钟树系统有一个大体的掌握，时钟树系统的结构如下，从图中也可以知晓有多少时钟、时钟速度为多少、时钟如何分配等：</p>
+<div align=center><img src="https://cdn.staticaly.com/gh/yanzongs/image-hosting@main/QQ截图20220815212935.3g66m1nezng0.png" width="  "></div>
+
+<p><br></p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h3><p>这里要先区分一些<strong>时钟系统、系统时钟、时钟源、分/倍频器、外设</strong>的概念：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时钟系统</td>
+<td>这整个包含时钟源、系统时钟的系统</td>
+</tr>
+<tr>
+<td>时钟源</td>
+<td>产生一定频率的时钟</td>
+</tr>
+<tr>
+<td>系统时钟</td>
+<td>由时钟源驱动的一个时钟</td>
+</tr>
+<tr>
+<td>分频器</td>
+<td>通过分频电路，将输入信号的频率按倍数进行<strong>降低</strong>后再输出</td>
+</tr>
+<tr>
+<td>倍频器</td>
+<td>通过分频电路，将输入信号的频率按倍数进行<strong>提高</strong>后再输出</td>
+</tr>
+<tr>
+<td>外设</td>
+<td>外部连接设备</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p><strong>· 五个时钟源</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>时钟源名称</th>
+<th>功能释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>低速内部时钟(LSI)</td>
+<td>由内部RC振荡器产生，主要提供给实时时钟模块<br />一般采用40KHz</td>
+</tr>
+<tr>
+<td>低速外部时钟(LSE)</td>
+<td>以外部晶振作为时钟源，主要提供给实时时钟模块<br />一般采用32.768KHz</td>
+</tr>
+<tr>
+<td>高速外部时钟(HSE)</td>
+<td>以外部晶振作为时钟源，频率范围为4~26MHz（一般选择8MHz）<br />HSE也可以直接作为系统时钟或者PLL输入</td>
+</tr>
+<tr>
+<td>高速内部时钟(HSI)</td>
+<td>由内部RC振荡器产生，频率为8MHz，但不稳定<br />可以直接作为系统时钟或者用作PLL输入</td>
+</tr>
+<tr>
+<td>锁相环倍频输出(PLL)</td>
+<td>它是由HSE或者HSI驱动产生的一个时钟<br />先经过<strong>分频器M</strong>，再经过<strong>倍频器N</strong>，再经过<strong>分频器P</strong>，形成PLL时钟源，供给外设或者系统时钟使用<br />PLL计算公式 : <code>x = (f/m)*(n/p)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>其中PLL计算公式各参数解释如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>PLL频率</td>
+</tr>
+<tr>
+<td>f</td>
+<td>输入时钟源(HSL、HSI)时钟频率</td>
+</tr>
+<tr>
+<td>p</td>
+<td>分频器</td>
+</tr>
+<tr>
+<td>n</td>
+<td>倍频器</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<blockquote>
+<p>其中高速时钟(HSE和HSI)提供给芯片主体的主时钟，低速时钟(LSE和LSI)只是提供给芯片中的RTC(实时时钟)及独立看门狗使用。</p>
+</blockquote>
+<p><br></p>
+<p><strong>· STMCUBEMX时钟设置</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>时钟名</th>
+<th>功能释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BYPASS Clock Source<br />(旁路时钟源)</td>
+<td>所谓HSE旁路时钟源，是指无需使用外部晶体时所需的芯片内部时钟驱动组件<br />直接从外界导入时钟信号，犹如芯片内部的驱动组件被旁路了。</td>
+</tr>
+<tr>
+<td>Crystal/Ceramic Resonator<br />(晶体/陶瓷晶振)</td>
+<td>外部晶体/陶瓷谐振器(HSE晶体)模式该时钟源是由外部无源晶体与MCU内部时钟驱动电路共同配合形成，有一定的启动时间，精度较高。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>软件中设置如图所示：</p>
+<div align=center><img src="https://cdn.staticaly.com/gh/yanzongs/image-hosting@main/QQ截图20220817212703.f3xj8lovbko.jpg" width="  "></div>
+
+<p><br></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a><strong>其他</strong></h3><ol>
+<li><p>外部时钟一般由外部晶振产生，会相对比较准确一些</p>
+<p>而系统时钟则是由时钟源驱动产生的，具体由哪个时钟源驱动，则需要看时钟框图了</p>
+<p><br></p>
+</li>
+<li><p>可以看到，(系统时钟)SYSCLK有3路选择，HSI、HSL和PLLCLK均可以作为SYSCLK的时钟源<br>图中的梯形可以理解为一个选择器，3选1(同理时钟框图中的其他梯形也是同样的意思)</p>
+<div align=center><img src="https://cdn.staticaly.com/gh/yanzongs/image-hosting@main/QQ截图20220815221546.37jx8zhjwy00.jpg" width="  "></div>
+
+<p><br></p>
+</li>
+<li><p>由下图可以看出，SYSCLK出来后经过分频器，分配给AHB、APB或者其他时钟线<br>那么挂在这些时钟线上面的外设想要使用，就必须先使能相对应的时钟</p>
+<div align=center><img src="https://cdn.staticaly.com/gh/yanzongs/image-hosting@main/QQ截图20220815221856.kvhrqu2dbkw.jpg" width="  "></div>
+
+</li>
+</ol>
+<p><br></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p><strong>·</strong> 所以我们在拿到一款新的芯片时，查看它的时钟框图，需要<strong>重点关注</strong>这些信息：</p>
+<blockquote>
+<ol>
+<li><p>时钟系统有哪几个时钟源，频率分别为多少</p>
+</li>
+<li><p>系统时钟SYSCLK可以由哪几个时钟源驱动</p>
+</li>
+<li><p>哪些外设分别挂在哪个时钟线或者时钟上</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<center>ENDING</center>
+<center>感兴趣可以分享给身边的小伙伴哦！</center>
+
+<hr>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/09/LIFE-College/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Life - 记大二上开学有感
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/HEXO-Frontmatter/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Hexo - Post Frontmatter书写操作</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=STM32 - 系统时钟树分析 - Yanzongs.cn&url=http%3A%2F%2Fexample.com%2F2022%2F08%2FSTM32-SystemClock%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=STM32 - 系统时钟树分析 - Yanzongs.cn&u=http%3A%2F%2Fexample.com%2F2022%2F08%2FSTM32-SystemClock%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=STM32 - 系统时钟树分析 - Yanzongs.cn&url=http://example.com/2022/08/STM32-SystemClock/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+<section class="comments">
+    <div id="valine-container"></div>
+</section>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+
+
+
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BOOK/">BOOK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CREATION/">CREATION</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HEXO/">HEXO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-FPGA/">IC & FPGA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PROJRECT/">PROJRECT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/STUDY/">STUDY</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C51/" rel="tag">C51</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCU/" rel="tag">MCU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Verilog/" rel="tag">Verilog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%82%9F/" rel="tag">感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8C/" rel="tag">指导手册</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%92%9F%E6%A0%91/" rel="tag">时钟树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B/" rel="tag">电子信息工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%97%E8%AF%8D/" rel="tag">诗词</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/undefined/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/FPGA%20-%20VerilogGrammar/">FPGA - Verilog语法</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Book-DomesticThird/">Book - 《羊道·春牧场》简评</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Study-AnalogElectronics/">Study - 模电亿些知识点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Book-DomesticSecond/">Book - 《兄弟》简评</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Yanzongs.cn &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

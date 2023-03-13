@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>C51小项目 - 温控智能风扇 | Yanzongs.cn</title>
+
+    <meta name="description" content="&lt;blockquote&gt;
+&lt;p&gt;做一个简单的环境温湿度感应与显示器&lt;/p&gt;
+&lt;/blockquote&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "C51小项目 - 温控智能风扇 | Yanzongs.cn"  />
+    <meta property="og:description" content= "&lt;blockquote&gt;
+&lt;p&gt;做一个简单的环境温湿度感应与显示器&lt;/p&gt;
+&lt;/blockquote&gt;" />
+    <meta property="og:url" content="http://example.com/2022/09/C51-DHT11/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Yanzong Chan" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;blockquote&gt;
+&lt;p&gt;做一个简单的环境温湿度感应与显示器&lt;/p&gt;
+&lt;/blockquote&gt;" />
+    <meta name="twitter:title" content="C51小项目 - 温控智能风扇 | Yanzongs.cn"/>
+    <meta name="twitter:description" content="&lt;blockquote&gt;
+&lt;p&gt;做一个简单的环境温湿度感应与显示器&lt;/p&gt;
+&lt;/blockquote&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;blockquote&gt;
+&lt;p&gt;做一个简单的环境温湿度感应与显示器&lt;/p&gt;
+&lt;/blockquote&gt;",
+            "author": { "@type": "Person", "name": "Yanzong Chan" },
+            "@type": "BlogPosting",
+            "url": "http://example.com/2022/09/C51-DHT11/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://example.comundefined"
+            },
+            "name": "Yanzong Chan"
+            },
+            "headline": "C51小项目 - 温控智能风扇 | Yanzongs.cn",
+            "datePublished": "2022-09-23T16:00:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "http://example.com/2022/09/C51-DHT11/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            valine: {
+                enable: true,
+                appId: "qJg820m0oTgXC3L2anmHG52A-gzGzoHsz",
+                appKey: "DeTQdlGncT3OVBrk2KHC8yZ3",
+                placeholder: "Hello World!",
+                avatar: "",
+                pageSize: "10",
+                lang: "zh-CN",
+                visitor: false,
+                highlight: false,
+                recordIP: false,
+                emojiCDN: "",
+                enableQQ: false,
+                requiredFields: []
+            },
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Yanzongs.cn</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives/">文章</a>
+                
+                <a href="/message/">留言</a>
+                
+                <a href="/friends/">链接</a>
+                
+                <a href="/about/">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/yanzongs">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="">
+        <ion-icon name=""></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives/">文章</a>
+                    
+                    <a href="/message/">留言</a>
+                    
+                    <a href="/friends/">链接</a>
+                    
+                    <a href="/about/">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clf6nznen0021m4tw3vjwgkex" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      C51小项目 - 温控智能风扇
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2022-09-23T16:00:00.000Z" itemprop="datePublished">2022-09-24</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/IC-FPGA/">IC & FPGA</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C51/" rel="tag">C51</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <blockquote>
+<p>做一个简单的环境温湿度感应与显示器</p>
+</blockquote>
+<span id="more"></span>
+<p><br></p>
+<h3 id="电路连接分析"><a href="#电路连接分析" class="headerlink" title="电路连接分析"></a><strong>电路连接分析</strong></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>名称</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>VDD</td>
+<td>供电3-5V</td>
+</tr>
+<tr>
+<td>2</td>
+<td>DATA</td>
+<td>串行数据（单总线）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>NC</td>
+<td>空脚（悬空）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td>接地</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>需要注意的是，该实验选择P3^6引脚位DATA数据引脚，其他引脚可以修改</p>
+<div align=center><img src="https://www.waveshare.net/photo/accBoard/DHT11-Temperature-Humidity-Sensor/DHT11-Temperature-Humidity-Sensor-1.jpg" width="  "></div>
+
+<h3 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a><strong>数据分析</strong></h3><p><strong>·</strong> 数据采集及时序分析<br>DHT11采用单总线通信，单总线即只有一根数据线，系统中的数据交换、控制均由单总线完成。</p>
+<p><strong>·</strong> 传送数据位定义<br>DATA 管脚用于DHT11与单片机之间的通讯和同步,采用单总线数据格式，一次传送40 位数据，高位先出。</p>
+<p><strong>·</strong> 数据格式<br><code>8bit 湿度整数数据 + 8bit 湿度小数数据 + 8bit 温度整数数据 + 8bit 温度小数数据 + 8bit 校验位</code></p>
+<blockquote>
+<p>注：其中湿度小数部分为0</p>
+</blockquote>
+<p><strong>·</strong> 校验位数据定义<br>8bit 湿度整数数据 + 8bit 湿度小数数据 + 8bit 温度整数数据 + 8bit 温度小数数据 = 8bit 校验位，如果以上等式成立，则本次传感器采集的数据有效，否则无效。</p>
+<p><strong>·</strong> 数据位的定义</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0011 0101</td>
+<td>0000 0000</td>
+<td>0001 1000</td>
+<td>0000 0100</td>
+<td>0101 0001</td>
+</tr>
+<tr>
+<td>湿度高8位</td>
+<td>湿度低8位</td>
+<td>温度高8位</td>
+<td>温度低8位</td>
+<td>校验位</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>计算： </p>
+<p>0011 0101 + 0000 0000 + 0001 1000 + 0000 0100 = 0101 0001，接收数据正确。</p>
+<p>湿度：</p>
+<p>0011 0101(整数)=35H=53%RH 0000 0000(小数)=00H=0.0%RH =&gt;53%RH + 0.0%RH = 53.0%RH</p>
+<p>温度：</p>
+<p>0001 1000(整数)=18H=24℃ 0000 0100(小数)=04H=0.4℃ =&gt;24℃ + 0.4℃ = 24.4℃</p>
+<p><br></p>
+<h3 id="时序分析"><a href="#时序分析" class="headerlink" title="时序分析"></a><strong>时序分析</strong></h3><p>用户主机（MCU）发送一次开始信号后，DHT11 从低功耗模式转换到高速模式，待主机开始信号结束后，DHT11 发送响应信号，送出 40bit 的数据，幵触发一次信采集，依次轮回</p>
+<p>单片机连接DHT11的DATA引脚的I/O口输出低电平，且低电平保持时间不能小于 18ms，然后等待 DHT11 作出应答信号。</p>
+<p>DHT11 的 DATA 引脚检测到外部信号有低电平时， 等待外部信号低电平结束， 延迟后 DHT11 的 DATA引脚处于输出状态，输出 80 微秒的低电平作为应答信号，紧接着输出 80 微秒的高电平通知外设准备接收数据。</p>
+<p>位数据“0”的格式为： 50 微秒的低电平和 26-28 微秒的高电平，位数据“1”的格式为： 50 微秒的低电平加 70微秒的高电平。</p>
+<p><br></p>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a><strong>代码分析</strong></h3><p><strong>·</strong> main.c</p>
+<pre><code class="lang-c">#include&lt;reg51.h&gt;
+#include&quot;lcd.h&quot;
+#include&lt;intrins.h&gt;
+#include&lt;stdio.h&gt;
+
+sbit Temp_data=P3^6;
+
+//unsigned char data_byte;
+//unsigned char rec_dat_lcd=[4];
+unsigned int rec_dat[4];
+unsigned char rec_dat_lcd0[6];
+unsigned char rec_dat_lcd1[6];
+unsigned char rec_dat_lcd2[6];
+unsigned char rec_dat_lcd3[6];
+
+void DHT11_delay_us(unsigned char n);
+void DHT11_delay_ms(unsigned int z);
+void InitUART(void);
+void DHT11_start();
+void DHT11_receive();
+unsigned char DHT11_rec_byte();
+
+//主函数
+void main() &#123;    
+    //unsigned char i,j;
+    InitUART();
+    P1=0xf0;
+    InitLcd1602();
+    LcdShowStr(0,0,&quot;Humi:&quot;);
+    LcdShowStr(0,1,&quot;Temp:&quot;);
+    EA = 1;                  //开总中断
+
+    while(1) &#123;
+        DHT11_delay_ms(150);
+        DHT11_receive();
+        sprintf(rec_dat_lcd0,&quot;%d&quot;,rec_dat[0]);
+        sprintf(rec_dat_lcd1,&quot;%d&quot;,rec_dat[1]);
+        sprintf(rec_dat_lcd2,&quot;%d&quot;,rec_dat[2]);
+        sprintf(rec_dat_lcd3,&quot;%d&quot;,rec_dat[3]);
+        DHT11_delay_ms(100);
+
+        //湿度
+        LcdShowStr(6,0,rec_dat_lcd0);
+        LcdShowStr(8,0,&quot;.&quot;);
+        LcdShowStr(9,0,rec_dat_lcd1);
+        LcdShowStr(10,0,&quot; %&quot;);
+
+        //温度
+        LcdShowStr(6,1,rec_dat_lcd2);
+        LcdShowStr(8,1,&quot;.&quot;);
+        LcdShowStr(9,1,rec_dat_lcd3);
+        LcdShowStr(10,1,&quot; C&quot;);
+
+        //下面通过串口助手打印温度    
+        printf(&quot;Humi:%d.%d \n&quot;,rec_dat[0],rec_dat[1]);
+        printf(&quot;Temp:%d.%d °C\n&quot;,rec_dat[2],rec_dat[3]);
+    &#125;
+&#125;
+
+//DHT11起始信号
+void DHT11_start() &#123;
+    Temp_data=1;
+    DHT11_delay_us(2);
+    Temp_data=0;
+    DHT11_delay_ms(20);
+    Temp_data=1;
+    DHT11_delay_us(13);
+&#125;
+
+//接收一个字节
+unsigned char DHT11_rec_byte() &#123;
+    unsigned char i,dat;
+
+    for(i=0;i&lt;8;i++) &#123;
+        while(!Temp_data);
+        DHT11_delay_us(8);
+        dat&lt;&lt;=1;
+        if(Temp_data==1) &#123;
+            dat+=1;
+        &#125;
+        while(Temp_data);
+    &#125;
+    return dat;
+&#125;
+
+//接收温湿度数据
+void DHT11_receive() &#123;
+    unsigned int R_H,R_L,T_H,T_L;
+    unsigned char RH,RL,TH,TL,revise;
+
+    DHT11_start();
+    Temp_data=1;
+    if(Temp_data==0) &#123;
+        while(Temp_data==0);   //等待拉高     
+        DHT11_delay_us(40);  //拉高后延时80us
+
+        R_H=DHT11_rec_byte();    //接收湿度高八位  
+        R_L=DHT11_rec_byte();    //接收湿度低八位  
+        T_H=DHT11_rec_byte();    //接收温度高八位  
+        T_L=DHT11_rec_byte();    //接收温度低八位
+        revise=DHT11_rec_byte(); //接收校正位
+
+        DHT11_delay_us(25);    //结束
+
+        if((R_H+R_L+T_H+T_L)==revise) &#123;      //校正
+            RH=R_H;
+            RL=R_L;
+            TH=T_H;
+            TL=T_L;
+        &#125; 
+        //数据处理，方便显示
+        rec_dat[0]=RH;
+        rec_dat[1]=RL;
+        rec_dat[2]=TH;
+        rec_dat[3]=TL;
+    &#125;
+&#125;
+
+//延时us   --2*n+5us
+void DHT11_delay_us(unsigned char n) &#123;
+    while(--n);
+&#125;
+
+//延时ms
+void DHT11_delay_ms(unsigned int z) &#123;
+   unsigned int i,j;
+   for(i=z;i&gt;0;i--)
+      for(j=110;j&gt;0;j--);
+&#125;
+
+//使用定时器1作为串口波特率发生器
+void InitUART(void) &#123;
+    SCON=0x40;                    //串口通信工作方式1
+    REN=1;                        //允许接收
+    TMOD=0x20;                    //定时器1的工作方式2
+    TH1=0xF3,TL1=0xF3;        
+    TI=1;                       //这里一定要注意
+    TR1=1;    
+&#125;
+</code></pre>
+<p><br></p>
+<p><strong>·</strong> Lcd.c</p>
+<pre><code class="lang-c">#include&quot;lcd.h&quot;
+
+//void Read_Busy() &#123;          //忙检测函数，判断bit7是0，允许执行；1禁止
+//    unsigned char sta;      
+//    LCD1602_DB = 0xff;
+//    LCD1602_RS = 0;
+//    LCD1602_RW = 1;
+//    do &#123;
+//        LCD1602_EN = 1;
+//        sta = LCD1602_DB;
+//        LCD1602_EN = 0;    //使能，用完就拉低，释放总线
+//    &#125;while(sta &amp; 0x80);
+//&#125;
+
+//写命令
+void Lcd1602_Write_Cmd(unsigned char cmd) &#123;
+    //Read_Busy();
+    LCD1602_RS = 0;
+    LCD1602_RW = 0;
+    LCD1602_DB = cmd;
+    LCD_Delay10ms(1);
+    LCD1602_EN = 1;
+    LCD_Delay10ms(1);
+    LCD1602_EN = 0;    
+&#125;
+
+//写数据
+void Lcd1602_Write_Data(unsigned char dat) &#123;
+    //Read_Busy();
+    LCD1602_RS = 1;
+    LCD1602_RW = 0;
+    LCD1602_DB = dat;
+    LCD_Delay10ms(1);
+    LCD1602_EN = 1;
+    LCD_Delay10ms(1);
+    LCD1602_EN = 0;
+&#125;
+
+//指定位置开始显示数据！
+//坐标显示
+void LcdSetCursor(unsigned char x,unsigned char y) &#123;
+    unsigned char addr;
+    if(y == 0)
+        addr = 0x00 + x;//第一行开始，x表示一行的第x个
+    else
+        addr = 0x40 + x;//第二行开始，x表示一行的第x个
+
+    Lcd1602_Write_Cmd(addr|0x80);
+&#125;
+
+//显示字符串
+void LcdShowStr(unsigned char x,unsigned char y,unsigned char *str) &#123;
+    LcdSetCursor(x,y);      //当前字符的坐标
+    while(*str != &#39;\0&#39;) &#123;
+        Lcd1602_Write_Data(*str++);
+    &#125;
+&#125;
+
+//1602初始化
+void InitLcd1602() &#123;
+    Lcd1602_Write_Cmd(0x38);    //打开，5*8,8位数据
+    Lcd1602_Write_Cmd(0x0c);
+    Lcd1602_Write_Cmd(0x06);
+    Lcd1602_Write_Cmd(0x01);    //清屏   
+&#125;
+
+//误差 0us
+void LCD_Delay10ms(unsigned int c) &#123;
+    unsigned char a,b;
+    for(;c&gt;0;c--)
+        for(b=38;b&gt;0;b--)
+            for(a=130;a&gt;0;a--);
+&#125;
+</code></pre>
+<p><br></p>
+<p><strong>·</strong> Lcd.h</p>
+<pre><code class="lang-c">#ifndef __LCD_H_
+#define __LCD_H_
+/**********************************
+当使用的是4位数据传输的时候定义
+使用8位取消这个定义
+#define LCD1602_4PINS
+**********************************/
+
+#include&lt;reg51.h&gt;
+
+//---重定义关键词---//
+#ifndef uchar
+#define uchar unsigned char
+#endif
+
+#ifndef uint 
+#define uint unsigned int
+#endif
+
+/**********************************
+PIN口定义
+**********************************/
+#define LCD1602_DB  P0      //data bus 数据总线
+sbit LCD1602_RS = P2^6;
+sbit LCD1602_RW = P2^5;
+sbit LCD1602_EN = P2^7;     
+
+/**********************************
+函数声明
+**********************************/
+/*在51单片机12MHZ时钟下的延时函数*/
+//void Lcd1602_Delay1ms(uint c);   //误差 0usvo
+void LCD_Delay10ms(unsigned int c);
+//void Read_Busy();           //忙检测函数，判断bit7是0，允许执行；1禁止
+void Lcd1602_Write_Cmd(unsigned char cmd);     //写命令
+void Lcd1602_Write_Data(unsigned char dat);   //写数据
+void LcdSetCursor(unsigned char x,unsigned char y);  //坐标显示
+void LcdShowStr(unsigned char x,unsigned char y,unsigned char *str);     //显示字符串
+void InitLcd1602();              //1602初始化
+
+#endif
+</code></pre>
+<p><br></p>
+<h3 id="实验问题"><a href="#实验问题" class="headerlink" title="实验问题"></a><strong>实验问题</strong></h3><p>在实验中一开始，并未能正常的在LCD1602上显示，反而出现乱码，此时分析原因为，显示的数据类型不对。在此过程中，不断通过串口打印DHT11传回来的数据进行调试最后才成功。其中，printf()串口打印又成一个问题，通过学习发现一个很好的方法</p>
+<p>首先导入#include<stdio.h>C语言头文件设置定时器，一开始，用波特率位9600，将TL、TH都设置成0xfd后不管是英文还是中文的都是乱码。</p>
+<p>后来查询得知：</p>
+<p>12M的晶振波特率只能是2400，9600的情况下会有7.8%的误差，所以会产生乱码，而2400波特率的情况下误差是0.16%，这样就不会产生乱码了，因此TH1和TL1都设为F3</p>
+<pre><code class="lang-c">void InitUART(void) &#123;         //使用定时器1作为串口波特率发生器
+    SCON=0x40;                 //串口通信工作方式1
+    REN=1;                    //允许接收
+    TMOD=0x20;                //定时器1的工作方式2
+    TH1=0xF3,TL1=0xF3;                
+    TI=1;                    //这里一定要注意
+    TR1=1;    
+&#125;
+</code></pre>
+<blockquote>
+<p>注意：因为本实验使用的晶振是12M，如果你的晶振是11.0592，将TH1和TL1设置为0xFd，波特率=9600</p>
+</blockquote>
+<p>成功打印出温度数据后，接下来就是将温度数据在LCD1602上显示了，于是，使用sprintf()函数进行字符串拼接，进行显示，当然这只是我当时想到的方法，如果你有更好的方法也可以的！</p>
+<p><br></p>
+<blockquote>
+<p>感谢帮助的博主文档：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013151320/article/details/50389624">51单片机DHT11温湿度传感器</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/tongxin082/article/details/81639018">51单片机DHT11温湿度检测手机蓝牙APP显示设计</a></p>
+</blockquote>
+<p><br></p>
+<hr>
+<center>ENDING</center>
+<center>感兴趣可以分享给身边的小伙伴哦！</center>
+
+<hr>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2022/11/Book-DomesticFirst/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          Book - 《如花在野》简评
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/LIFE-College/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Life - 记大二上开学有感</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=C51小项目 - 温控智能风扇 - Yanzongs.cn&url=http%3A%2F%2Fexample.com%2F2022%2F09%2FC51-DHT11%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=C51小项目 - 温控智能风扇 - Yanzongs.cn&u=http%3A%2F%2Fexample.com%2F2022%2F09%2FC51-DHT11%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=C51小项目 - 温控智能风扇 - Yanzongs.cn&url=http://example.com/2022/09/C51-DHT11/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+<section class="comments">
+    <div id="valine-container"></div>
+</section>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+
+
+
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BOOK/">BOOK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CREATION/">CREATION</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HEXO/">HEXO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-FPGA/">IC & FPGA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PROJRECT/">PROJRECT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/STUDY/">STUDY</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C51/" rel="tag">C51</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCU/" rel="tag">MCU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Verilog/" rel="tag">Verilog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%82%9F/" rel="tag">感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8C/" rel="tag">指导手册</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%92%9F%E6%A0%91/" rel="tag">时钟树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B/" rel="tag">电子信息工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%97%E8%AF%8D/" rel="tag">诗词</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/undefined/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/FPGA%20-%20VerilogGrammar/">FPGA - Verilog语法</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Book-DomesticThird/">Book - 《羊道·春牧场》简评</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Study-AnalogElectronics/">Study - 模电亿些知识点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Book-DomesticSecond/">Book - 《兄弟》简评</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Yanzongs.cn &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
