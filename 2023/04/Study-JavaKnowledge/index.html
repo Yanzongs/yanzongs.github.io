@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>Study - Java期末速成 | Yanzongs.cn</title>
+
+    <meta name="description" content="&lt;p&gt;关于Java考试的两天突击&lt;/p&gt;
+&lt;p&gt;请求记忆面包！&lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="cn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "Study - Java期末速成 | Yanzongs.cn"  />
+    <meta property="og:description" content= "&lt;p&gt;关于Java考试的两天突击&lt;/p&gt;
+&lt;p&gt;请求记忆面包！&lt;/p&gt;" />
+    <meta property="og:url" content="http://example.com/2023/04/Study-JavaKnowledge/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Yanzong Chan" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;关于Java考试的两天突击&lt;/p&gt;
+&lt;p&gt;请求记忆面包！&lt;/p&gt;" />
+    <meta name="twitter:title" content="Study - Java期末速成 | Yanzongs.cn"/>
+    <meta name="twitter:description" content="&lt;p&gt;关于Java考试的两天突击&lt;/p&gt;
+&lt;p&gt;请求记忆面包！&lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;关于Java考试的两天突击&lt;/p&gt;
+&lt;p&gt;请求记忆面包！&lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Yanzong Chan" },
+            "@type": "BlogPosting",
+            "url": "http://example.com/2023/04/Study-JavaKnowledge/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http://example.comundefined"
+            },
+            "name": "Yanzong Chan"
+            },
+            "headline": "Study - Java期末速成 | Yanzongs.cn",
+            "datePublished": "2023-04-22T16:00:00.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "http://example.com/2023/04/Study-JavaKnowledge/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            valine: {
+                enable: true,
+                appId: "qJg820m0oTgXC3L2anmHG52A-gzGzoHsz",
+                appKey: "DeTQdlGncT3OVBrk2KHC8yZ3",
+                placeholder: "Hello World!",
+                avatar: "",
+                pageSize: "10",
+                lang: "zh-CN",
+                visitor: false,
+                highlight: false,
+                recordIP: false,
+                emojiCDN: "",
+                enableQQ: false,
+                requiredFields: []
+            },
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Yanzongs.cn</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">首页</a>
+                
+                <a href="/archives/">文章</a>
+                
+                <a href="/message/">留言</a>
+                
+                <a href="/friends/">链接</a>
+                
+                <a href="/about/">关于</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/yanzongs">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+    <a class="social" target="_blank" href="">
+        <ion-icon name=""></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives/">文章</a>
+                    
+                    <a href="/message/">留言</a>
+                    
+                    <a href="/friends/">链接</a>
+                    
+                    <a href="/about/">关于</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clgtewj99002eektw3duo1uz5" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      Study - Java期末速成
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-04-22T16:00:00.000Z" itemprop="datePublished">2023-04-23</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/STUDY/">STUDY</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B/" rel="tag">电子信息工程</a></li></ul>
+            </div>
+            
+
+            
+            <div class="article-busuanzi">
+                <span id="busuanzi_value_page_pv">N</span> 人看过
+            </div>
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>关于Java考试的两天突击</p>
+<p>请求记忆面包！</p>
+<span id="more"></span>
+<h1 id="1-先导"><a href="#1-先导" class="headerlink" title="1 先导"></a>1 先导</h1><h2 id="1-1-JDK、JRE、JVM"><a href="#1-1-JDK、JRE、JVM" class="headerlink" title="1.1 JDK、JRE、JVM"></a>1.1 JDK、JRE、JVM</h2><ul>
+<li>JDK： Java标准开发包，提供了编译、运行Java程序所需的各种工具和资源，包括Java编译器、Java运行时环境，以及常用的Java类库等</li>
+</ul>
+<ul>
+<li>JRE： Java运行环境，用于解释执行Java的字节码文件</li>
+</ul>
+<ul>
+<li><p>JVM： Java虚拟机，是JRE的一部分，负责解释执行字节码文件，是可运行Java字节码文件的虚拟计算机</p>
+<blockquote>
+<p>三者关系：JDK(开发工具包) &gt; JRE(运行环境) &gt; JVM(Java虚拟机)</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>区别联系：</p>
+<p>JDK包含JRE，JDK和JRE中都包含JVM。JDK除了包含JRE还包含一些常用开发工具和基础类库</p>
+<p>JDK用于开发，JRE用于运行Java程序</p>
+<p>JVM是Java编程语言的核心并具有平台独立性  </p>
+</li>
+</ul>
+<h2 id="1-2-开发Java程序的三个步骤"><a href="#1-2-开发Java程序的三个步骤" class="headerlink" title="1.2 开发Java程序的三个步骤"></a>1.2 开发Java程序的三个步骤</h2><ol>
+<li>编写源程序(.java)</li>
+<li>编译源文件生成字节码(.class)</li>
+<li>加载运行字节码</li>
+</ol>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li><p>一个Java源文件是由若干个类组成，最简单的只有一个类</p>
+</li>
+<li><p>源文件的命名规则：</p>
+<p>如果源文件中有多个类，那么<strong>只有一个类是 public 类</strong>，<strong>源文件的名称必须与这个类的名字完全相同</strong></p>
+</li>
+<li><p>一个Java应用程序必须要有一个类含有main方法，称为主类</p>
+<p>程序将从main方法开始执行</p>
+</li>
+<li><p><strong>一个程序必须有至少一个输出</strong>！！</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="1-3-Java程序运行过程"><a href="#1-3-Java程序运行过程" class="headerlink" title="1.3 Java程序运行过程"></a>1.3 Java程序运行过程</h2><ul>
+<li>javac： java源文件 —&gt; class字节码文件(0,1)</li>
+</ul>
+<ul>
+<li>java： 运行class文件</li>
+</ul>
+<ul>
+<li><p>过程：</p>
+<p>高级程序语言 -&gt; 可执行文件(XX.exe) -&gt; 操作系统执行Java源程序(XX.java) </p>
+<p>-&gt; 字节码文件(XX.class) -&gt; JVM</p>
+</li>
+</ul>
+<blockquote>
+<p>Java采用虚拟机技术、Java语言本身设计都体现出平台无关性</p>
+</blockquote>
+<h1 id="2-编程基础"><a href="#2-编程基础" class="headerlink" title="2 编程基础"></a>2 编程基础</h1><h2 id="2-1-Java的基本语法"><a href="#2-1-Java的基本语法" class="headerlink" title="2.1 Java的基本语法"></a>2.1 Java的基本语法</h2><ul>
+<li><p>方法格式：</p>
+<pre><code class="lang-java">权限修饰符 返回值声明 方法名称(参数列表) &#123;
+    方法中封装的逻辑功能;
+    return 返回值;
+&#125;
+</code></pre>
+<pre><code class="lang-java">public class Test &#123;
+    int add(intx, int y) &#123;
+        return x+y;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>权限修饰符：</p>
+<p>|           | 类内部 | 本包 | 子类 | 外部包 |<br>| ————- | ——— | —— | —— | ——— |<br>| public    | √      | √    | √    | √      |<br>| protected | √      | √    | √    | ×      |<br>| default   | √      | √    | ×    | ×      |<br>| private   | √      | ×    | ×    | ×      |</p>
+</li>
+</ul>
+<ul>
+<li><p>注释：</p>
+<ol>
+<li><p>单行注释： //（文本）</p>
+</li>
+<li><p>多行注释： /<em> （文本）  </em>/</p>
+</li>
+<li><p>文档注释： /*（文本） </p>
+<p>​                        *（文本） </p>
+<p>​                        *（文本） </p>
+<p>​                        */</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>关键字：</p>
+<p>Abstract、default、if、package、this、Boolean、do、implements、private、</p>
+<p>throw、Break、double、import、protected、throws、Byte、else、instanceof、</p>
+<p>public、transient、Case、false、interface、short、try、Catch、final、long、</p>
+<p>static、void、Char、finally、native、super、volatile、 Class、float、new、</p>
+<p>switch、while、Continue、for、null、synchronized</p>
+</li>
+</ul>
+<ul>
+<li>标识符：<ol>
+<li>由字母、数字、下划线和美元符号组成</li>
+<li>不能以数字开头</li>
+<li>不能是Java中的关键字</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-2-变量、常量"><a href="#2-2-变量、常量" class="headerlink" title="2.2 变量、常量"></a>2.2 变量、常量</h2><ul>
+<li>变量的定义：<ol>
+<li>按所属类型划分：基本数据类型、引用数据类型</li>
+<li>按声明位置划分：局部变量（方法或语句块内部定义的变量）、成员变量（方法外部、类的内部定义的变量）</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>变量的<strong>基本</strong>数据类型：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>包含</th>
+<th>所占字节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整型</td>
+<td>long、int、short、byte</td>
+<td>8、4、2、1</td>
+</tr>
+<tr>
+<td>浮点型</td>
+<td>float、double</td>
+<td>4、8</td>
+</tr>
+<tr>
+<td>字符型</td>
+<td>char</td>
+<td>2</td>
+</tr>
+<tr>
+<td>布尔型</td>
+<td>boolean</td>
+<td>1</td>
+</tr>
+<tr>
+<td>位</td>
+<td>byte</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>Java三种进制的表示方式：</p>
+<ol>
+<li>十进制：0-9表示，首位不能为0</li>
+<li>八进制：0-7表示，以0为前缀，如：013、027</li>
+<li>十六进制：0-9、a-f或A-F之间的字母表示的数，以0x或0X为前缀，如0xA3、0x1b</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>变量的<strong>引用</strong>数据类型：</p>
+<ol>
+<li>字符串（String）</li>
+<li>数组类型</li>
+<li>接口（interface）</li>
+<li>类（class）</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>变量的类型转换：</p>
+<ol>
+<li><p>boolean类型不能转换成任何其他数据类型</p>
+</li>
+<li><p>自动类型转换规则：</p>
+<p>byte,short,int -&gt; floot -&gt; long -&gt; double</p>
+</li>
+<li><p>强制类型转换规则：</p>
+<p>(转换类型)转换变量</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>常量的定义：</p>
+<p>在变量前加上修饰符<code>final</code></p>
+<pre><code class="lang-java">final [修饰符] [类型标识符] 常量名 = （直接）常量;
+</code></pre>
+</li>
+</ul>
+<h2 id="2-3-运算符"><a href="#2-3-运算符" class="headerlink" title="2.3 运算符"></a>2.3 运算符</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">运算类型</th>
+<th style="text-align:center">符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">算术运算</td>
+<td style="text-align:center">+  -  *  /  %  ++  —</td>
+</tr>
+<tr>
+<td style="text-align:center">赋值运算</td>
+<td style="text-align:center">=</td>
+</tr>
+<tr>
+<td style="text-align:center">关系运算</td>
+<td style="text-align:center">&gt;  &lt;  &gt;=  &lt;=  ==  !=</td>
+</tr>
+<tr>
+<td style="text-align:center">逻辑运算</td>
+<td style="text-align:center">!  &amp;  \</td>
+<td>^  &amp;&amp;  \</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">条件运算</td>
+<td style="text-align:center">XX ? X : X</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>常用数学函数：</p>
+<pre><code class="lang-java">//abs()方法：返回被操作数的绝对值
+int x = Math.abs(50);                //返回50
+float x = Math.abs(-36.8);           //返回36.8
+
+//pow(double y, double x)方法：返回y^x
+Math.pow(8, 2);                      //返回64.0
+
+//round()方法：返回最接近操作数的整数
+//对正数是四舍五入，对负数是四舍五不入
+Math.round(11.5);                    //返回12
+Math.round(-11.5);                   //返回-11
+
+//sqrt(double x)方法：返回操作数的平方根
+Math.sqrt(4.0);                      //返回2.0
+
+//max()方法：返回两个操作数中较大的一个
+Math.max(100.2, 203.5);              //返回203.5
+
+//min()方法：返回两个操作数中较小的一个
+Math.min(100.2, 203.5);              //返回100.2
+
+//random()方法：产生0-1之间的随机数，为double类型
+int a = (int)(Math.random()*10);     //返回0-10之间的随机整数
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>输入输出数据<code>java.util.Scanner</code>：</p>
+<pre><code class="lang-java">import java.util.Scanner                       //从包java.util中导入Scanner类
+public class ClassName &#123;
+    poblic static void main(String[] args) &#123;
+        Scanner s = new Scanner(System.in);    //创建一个Scanner对象
+        double d = s.nextDouble();             //输入浮点数
+        int i = s.nectInt();                   //输入整数
+        String str1 = s.nextLine();            //输入字符串，回车为分隔符
+        ……
+        s.close();
+    &#125;   
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="2-4-选择与循环"><a href="#2-4-选择与循环" class="headerlink" title="2.4 选择与循环"></a>2.4 选择与循环</h2><ul>
+<li><p>选择语句：</p>
+<pre><code class="lang-java">if
+else if
+if
+
+/**********/
+
+switch() &#123;
+    case 1: XX; break;
+    case 2: XX; break;
+    default (可有可无): XX; break;
+&#125;
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>循环语句：</p>
+<pre><code class="lang-java">while
+
+/**********/
+
+for
+
+/**********/
+
+do while
+
+/**********/
+
+for(总的每一个元素的数据类型 别名 : 要遍历的总的) &#123;
+    操作这个别名
+&#125;
+
+//for each举例：
+int a[] = new int[]&#123;1,2,3,4,5,6,7&#125;;
+for(int a1 : a) &#123;
+    System.out.println(a1);
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="2-5-数组"><a href="#2-5-数组" class="headerlink" title="2.5 数组"></a>2.5 数组</h2><blockquote>
+<p>数组不允许在前面的括号中书写元素个数！！</p>
+</blockquote>
+<ul>
+<li><p>多维数组初始化的3种方式：</p>
+<ol>
+<li><p>动态初始化方式1、方式2</p>
+<pre><code class="lang-java">int[][] arr1 = new int[3][];    //行必须要写，列可以省略
+    arr1[0] = new int[3];       //第0行有3列
+    arr1[1] = new int[2];       //第1行有2列
+    arr1[1] = new int[1];       //第2行有1列
+
+/**********/
+
+int[][] arr2 = new int[3][2];
+    arr[0][0] = 33;
+</code></pre>
+</li>
+<li><p>静态初始化方式3</p>
+<pre><code class="lang-java">int arr3[][] = new int[][]&#123;&#123;1,2,3&#125;,&#123;4,5&#125;&#125;;
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>数组的常见操作：</p>
+<ol>
+<li><p>声明数组：</p>
+<pre><code class="lang-java">int arr[];
+</code></pre>
+</li>
+<li><p>数组初始化：</p>
+<pre><code class="lang-java">int [] arr = &#123;1,2,3,4&#125;;
+int [] arr = new int[]&#123;1,2,3,4&#125;;
+</code></pre>
+</li>
+<li><p>查看数组长度：</p>
+<pre><code class="lang-java">arr.length;
+</code></pre>
+</li>
+<li><p>for each循环：</p>
+<pre><code class="lang-java">for(int a : arr) &#123;
+    System.out.println(a);
+&#125;
+</code></pre>
+</li>
+<li><p>数组拷贝：</p>
+<pre><code class="lang-java">int [] arr2 = arr1;
+int [] arr2 = Arrays.copy0f(arr,arr.length(自定义长度));
+</code></pre>
+</li>
+<li><p>数组排序：</p>
+<pre><code class="lang-java">Arrays.sort(arr);
+</code></pre>
+</li>
+<li><p>将int数组转换为字符串：</p>
+<pre><code class="lang-java">Arrays.toString(arr);
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-6-输入输出"><a href="#2-6-输入输出" class="headerlink" title="2.6 输入输出"></a>2.6 输入输出</h2><ul>
+<li><p>输入：</p>
+<pre><code class="lang-java">Scanner s = new Scanner(System.in);
+s.next()          //获取字符串
+s.nextInt()       //获取整型
+s.nextLine()      //获取字符串
+s.nextFloot()     //获取浮点型
+……
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>输出</p>
+<pre><code class="lang-java">System.out.print(&quot;XX&quot;);       //无自动换行
+System.out.println(&quot;XX&quot;);     //有自动换行
+</code></pre>
+</li>
+</ul>
+<h2 id="2-7-类与对象"><a href="#2-7-类与对象" class="headerlink" title="2.7 类与对象"></a>2.7 类与对象</h2><ul>
+<li>三大特征：<strong>封装、继承、多态</strong></li>
+</ul>
+<ul>
+<li><p>封装：</p>
+<ol>
+<li>通过<code>private</code>、<code>default</code>、<code>protected</code>、<code>public</code>关键字实现属性或者方法的封装，仅对外提供公共访问方式</li>
+<li>高内聚，低耦合</li>
+</ol>
+<blockquote>
+<p>封装的好处：</p>
+<ol>
+<li>实现数据项和方法的隐藏</li>
+<li>实现隐藏隔离，允许外部对类做有限的访问，开发者可以自由的改变类的内部实现</li>
+<li>提高了代码的重用性</li>
+</ol>
+</blockquote>
+<pre><code class="lang-java">public class Student &#123;
+    private String username;
+
+    public String getUsername() &#123;
+        return username;
+    &#125;
+
+    public void setUsername(String username) &#123;
+        this.name = username;
+    &#125;
+&#125;
+
+class Test &#123;
+     public static void main(String[] args) &#123;
+         Student student = new Student();
+         student.setUsername(&quot;张三&quot;);
+         student.getUsername();
+         System.out.println(username);
+     &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>继承：</p>
+<ol>
+<li>通过<code>extends</code>关键字实现</li>
+</ol>
+<blockquote>
+<p>继承的好处：</p>
+<ol>
+<li>代码重用了</li>
+<li>通过继承实现了对现实世界更加准确的建模</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>多态：</p>
+<ol>
+<li>一个对象变量可以指向多种实际类型对象的现象被称为“多态”</li>
+<li>三个必要条件：继承、方法重写、父类引用指向子类对象</li>
+<li>Java中多态的实现方法：接口实现、继承父类进行方法重写、同一个类中进行方法重载、父类引用指向子类对象</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>多态的好处：</p>
+<ol>
+<li>提高了代码的维护性（继承保证），提高了代码的扩展性</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>实例化（<strong>对象</strong>的创建）</p>
+<pre><code class="lang-java">/**通过new关键字进行创建**/
+Student zhangchunhui = new Student();
+zhangchunhui.setAge = 20;
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>实例化（<strong>类</strong>的创建）</p>
+<pre><code class="lang-java">/**类的定义格式**/
+[修饰符] class 类名 [extends 父类名] [implements 接口名] &#123;
+    //类体，包括类的成员变量和成员方法
+&#125;
+</code></pre>
+<pre><code class="lang-java">/**通过定义格式进行创建**/
+class Test extends Student implements UserDao &#123;
+     public static void main(String[] args) &#123;
+         Student student = new Student();
+
+         student.setUsername(&quot;张三&quot;);
+         student.getUsername();
+         System.out.println(username);
+     &#125;
+&#125;
+</code></pre>
+<pre><code class="lang-java">/**类体语句介绍**/
+class Stu &#123;
+    //1 属性设为私有
+    private int age;
+
+    //2 构造函数
+    public Stu() &#123;           //无参构造
+
+    &#125;
+    public Stu(int age) &#123;    //全参构造
+        this.age = age;
+    &#125;
+
+    //3 方法 get、set 自主定义
+    public void setAge(int age) &#123;
+        this.age = age;
+    &#125;
+    public int getAge() &#123;
+        return this.age;
+    &#125;
+
+    //4 自定义方法
+    public void myPrint() &#123;
+        System.out.println(&quot;nihao&quot;);
+    &#125;  
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="2-8-继承性"><a href="#2-8-继承性" class="headerlink" title="2.8 继承性"></a>2.8 继承性</h2><ul>
+<li><p>object类：</p>
+<ol>
+<li><p>object类是所有类的父类，里面有很多方法，如：</p>
+<p>| 方法      | 作用                                                         |<br>| ————- | —————————————————————————————— |<br>| getClass  | 获取运行时类型，返回值为Class对象                            |<br>| hashCode  | 返回该对象的哈希码值，是为了提高哈希表的性能                 |<br>| equals    | 判断两个对象是否相等，在object源码中equals就是使用==去判断，所以在object中equals是等价于==的。但是在String及某些类对equals进行了重写，实现不同的比较 |<br>| clone     | 主要是Java里除了8种基本类型传参数是值传递，其他的类对象传参数都是引用传递，我们有时候不希望再方法里将参数改变，这就需要在类中复写clone方法<br />如果在clone方法中调用super.clone()方法需要实现Cloneable接口，否则会抛出CloneNotSupportedException<br />此方法只实现了一个浅层拷贝，对于基本类型字段成功拷贝，但是如果是嵌套对象，只做了赋值，也就是只把地址拷贝了，所以没有成功拷贝，需要自己重写clone方法进行深度拷贝 |<br>| toString  | 返回一个String字符串，用于描述当前对象的信息，可以重写返回对自己有用的信息，默认返回的是当前对象的<code>类名+hashCode</code>的十六进制数字 |<br>| wait      | 多线程时用到的方法，作用是让当前线程进入等待状态，同时也会让当前线程释放它所持有的锁，直到其他线程调用此对象的<code>notify()</code>方法或者<code>notifyAll()</code>方法，当前线程被唤醒 |<br>| notify    | 多线程时用到的方法，唤醒该对象等待的<strong>某个</strong>线程             |<br>| notifyAll | 多线程时用到的方法，唤醒该对象等待的<strong>所有</strong>线程             |<br>| finalize  | 对象在被GC释放之前一定会调用finalize方法，对象被释放前最后的挣扎，因为无法锁定该方法什么时候被调用、减少使用 |</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>类的继承格式：</p>
+<pre><code class="lang-java">class 父类 &#123;
+    //类体
+&#125;
+
+class 子类 extends 父类 &#123;
+    //类体
+    //方法重写
+&#125;
+</code></pre>
+<pre><code class="lang-java">//定义父类
+public class Parent &#123;         
+    private int age;
+    public String name;
+
+    public Parent() &#123;
+
+    &#125;   
+    public Parent(int age) &#123;
+        this.age = age;
+    &#125;
+
+    public int getAge() &#123;
+        return age;
+    &#125;
+    public void setAge(int age) &#123;
+        this.age = age;
+    &#125;
+
+    public void myParent() &#123;
+        System.out.println(&quot;我是父类的myParent方法&quot;);
+    &#125;   
+&#125;
+
+//定义子类继承父类
+class Son extends Parent &#123;    
+
+    //子类对父类的方法重写！
+    public void myParent() &#123;
+        System.out.println(&quot;我是子类重写的myParent方法&quot;);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        Son son = new Son();
+        son.name = &quot;zhangsan&quot;;
+        son.myParent();
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>子类只能继承父类<strong>非私有</strong>的方法和属性！！！</p>
+</blockquote>
+<h2 id="2-9-类的封装"><a href="#2-9-类的封装" class="headerlink" title="2.9 类的封装"></a>2.9 类的封装</h2><blockquote>
+<p>封装目的：</p>
+<p>将类的某些信息隐藏在类的内部，不允许外部程序直接访问，而是通过该类提供<code>getXX</code>、<code>setXX</code>的方法来对隐藏的信息进行操作和访问</p>
+</blockquote>
+<ul>
+<li><p>封装的实现步骤：</p>
+<ol>
+<li><p>修改属性的可见性设为<code>private</code></p>
+</li>
+<li><p>创建<code>getXX</code>、<code>setXX</code>方法（用于属性的读写），通过这两种方法对数据进行获取和设定，对象通过调用这两种方法实现对数据的读写</p>
+</li>
+<li><p>在<code>getXX</code>、<code>setXX</code>方法中加入属性控制语句（对属性的合法性进行判断）</p>
+<pre><code class="lang-java">public class Person &#123;
+    private String name;
+    private int age;
+
+    public int getAge() &#123;
+        return age;
+    &#125;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    public void setAge(int age) &#123;
+        if(age &lt; 0) &#123;
+            System.out.println(&quot;你的年龄不合法，请重新输入&quot;);
+        &#125;
+        else &#123;
+            this.age = age;
+        &#125;
+    &#125;
+&#125;
+
+class Test2 &#123;
+    public static void main(String[] args) &#123;
+        Person person = new Person();
+        person.setAge(-1);
+        person.setName(&quot;张三&quot;);
+        System.out.println(person.getName());
+        System.out.println(person.getAge());
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-10-构造方法"><a href="#2-10-构造方法" class="headerlink" title="2.10 构造方法"></a>2.10 构造方法</h2><ul>
+<li><p>构造方法的定义：</p>
+<p>主要用于在创建对象时初始化对象，即为对象成员变量赋初始值，总与new运算符一起使用在创建对象的语句中，一个类可以有多个构造函数，可根据其参数个数的不同或参数类型的不同来区分它们，即构造函数的重载。</p>
+</li>
+</ul>
+<ul>
+<li><p>构造方法的重载：</p>
+<pre><code class="lang-java">public class Person &#123;
+    private String name;
+    private int age;
+
+    //以下是构造方法 
+    public Person() &#123;                         //无参构造
+
+    &#125;
+    public Person(String name) &#123;              //有参构造
+        this.name = name;
+    &#125;
+    public Person(int age) &#123;
+        this.age = age;
+    &#125;
+    public Person(String name, int age) &#123;     //全参构造
+        this.name = name;
+        this.age = age;
+    &#125;
+
+    public int getAge() &#123;
+        return age;
+    &#125;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    public void setAge(int age) &#123;
+        this.age = age;
+    &#125;
+&#125;
+
+class Test2 &#123;
+    public static void main(String[] args) &#123;
+        //有参构造引用
+        Person person = new Person();
+        person.setage(22);
+        person.setName(&quot;zhangsan&quot;);
+
+        //全参构造引用（推荐使用）
+        Person person = new Person(&quot;zhangsan&quot;, 22);
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="2-11-方法的重载和重写"><a href="#2-11-方法的重载和重写" class="headerlink" title="2.11 方法的重载和重写"></a>2.11 方法的重载和重写</h2><ul>
+<li><p>重载的概念：</p>
+<ol>
+<li><p>必须重载在同一个类中</p>
+</li>
+<li><p>方法名应相同</p>
+</li>
+<li><p>方法的参数的个数、顺序或类型不同</p>
+</li>
+<li><p>与方法的修饰符或返回值没有关系</p>
+<pre><code class="lang-java">public void Parent &#123;
+    ……
+
+    public void myPrint() &#123;
+        System.out.println(&quot;我是父类原方法&quot;);
+    &#125;
+&#125;
+
+class Son extends Parent &#123;
+    ……
+
+    public void myPrint() &#123;
+        System.out.println(&quot;我是父类重写的方法&quot;);
+    &#125;
+
+    private int myPrint(String name) &#123;
+        System.out.println(&quot;我是Son类中重载的方法1&quot;);
+        return 1;
+    &#125;
+
+    private int myPrint(int age) &#123;
+        System.out.println(&quot;我是Son类中重载的方法2&quot;);
+        return 1;
+    &#125;
+
+    private int myPrint(int age, String name) &#123;
+        System.out.println(&quot;我是Son类中重载的方法3&quot;);
+        return 1;
+    &#125;
+
+    private void myPrint(String name, int age) &#123;
+        System.out.println(&quot;我是Son类中重载的方法4&quot;);
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>重写的概念：</p>
+<p>当父类中的方法无法满足子类需求的时候，需要方法重写</p>
+</li>
+</ul>
+<ul>
+<li><p>方法重写的注意事项：</p>
+<ol>
+<li><p>重写的方法必须要和父类一模一样（包括返回值、方法名、参数列表）</p>
+</li>
+<li><p>重写的方法可以使用<code>@Override</code>注释来标识</p>
+</li>
+<li><p><strong>子类中重写的方法的访问权限不能低于父类中方法的访问权限</strong></p>
+<p>权限修饰符：public &gt; protected &gt; default(或者不写) &gt; private</p>
+<pre><code class="lang-java">public vlass Parent &#123;
+    protected void myPrint() &#123;
+        Systemm.out.println(&quot;我是父类方法&quot;);
+    &#125;
+&#125;
+
+class Son extends Parent &#123;
+    protected void myPrint() &#123;
+        Systemm.out.println(&quot;我是子类方法&quot;);
+    &#125;
+&#125;
+
+class Test &#123;
+    public static void main(String[] args) &#123;
+        Son son = new son;
+        son.myPrint();
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>重写和重载的区别：</p>
+<ol>
+<li>重载：在同一个类中，出现多个同名的方法，参数列表不同，与返回值类型、修饰符无关</li>
+<li>重写：子类中出现和父类一模一样的方法（包括返回值类型、方法名、参数列表）</li>
+</ol>
+</blockquote>
+<h2 id="2-12-this、super关键字"><a href="#2-12-this、super关键字" class="headerlink" title="2.12 this、super关键字"></a>2.12 this、super关键字</h2><ul>
+<li>Java中为了解决变量的命名冲突和不确定性问题，引入关键字this代表其所在方法的当前对象的引用</li>
+</ul>
+<ul>
+<li><p>使用情况：</p>
+<pre><code class="lang-java">/**构造方法中指该构造器所创建的新对象**/
+public class B &#123;
+    A a;     //A是一个类
+
+    public B(A a) &#123;
+        this.a = a;
+    &#125;
+&#125;
+
+/**方法中指调用该方法的对象**/
+public class Baby &#123;
+    public void wakeUp() &#123;
+        System.out.println(&quot;宝宝醒啦&quot;);
+    &#125;
+    public void eat() &#123;
+        this.wakeUp();
+        System.out.println(&quot;吃东西&quot;);
+    &#125;
+&#125;
+
+/**在类本身的方法或构造器中引用该类的实例变量（全局变量）和方法**/
+public void setName(String name) &#123;
+    this.name = name;
+&#125;
+</code></pre>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li><p>this只能在类中的非静态方法(无static修饰)中使用，静态方法和静态的代码块中绝对不能出现this</p>
+<p>(原因：static方法在类加载时就已经存在了，但是对象是在创建时踩在内存中生成)</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>super关键字主要存在于子类方法中，用于指向子类对象中的父类对象，可以访问父类的属性、函数以及构造函数</p>
+<ol>
+<li>子父类存在着同名的成员（包括变量和方法）时，在子类中默认是访问子类的成员，可以通过super关键字指定访问父类的成员</li>
+<li>默认会先调用父类无参的构造方法，可以通过super关键字指定调用父类的构造方法</li>
+</ol>
+<pre><code class="lang-java">public vlass Parent &#123;
+    protected void myPrint() &#123;
+        Systemm.out.println(&quot;我是父类方法&quot;);
+    &#125;
+&#125;
+
+class Son extends Parent &#123;
+    protected void myPrint() &#123;
+
+        //此处使用super指向父类方法，最终此语句输出结果为&quot;我是父类方法&quot;
+        super.myPrint();
+
+        Systemm.out.println(&quot;我是子类方法&quot;);
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="2-13-static、final关键字"><a href="#2-13-static、final关键字" class="headerlink" title="2.13 static、final关键字"></a>2.13 static、final关键字</h2><ul>
+<li><p>static静态变量</p>
+<pre><code class="lang-java">private static String str1 = &quot;static Property&quot;;
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>static静态代码块</p>
+<pre><code class="lang-java">static &#123;
+    static int a = 3;
+&#125;
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>被static修饰的变量属于类变量，可以通过类名、变量名直接引用，而不需要new一个类</li>
+<li>被static修饰的方法属于类方法，可以通过类名、方法名直接引用，而不需要new一个类</li>
+</ol>
+</blockquote>
+<pre><code class="lang-java">public class Parent &#123;
+    static &#123;
+        int a = 3;
+    &#125;
+
+    private static String name = &quot;zhangsan&quot;;
+
+    public static void myPrint() &#123;
+        System.out.println(&quot;我是父类的静态方法&quot;);
+    &#125;
+&#125;
+
+calss Test &#123;
+    public static void main(String[] args) &#123;
+        //Static修饰的变量或方法可以直接调用
+        Parent.myPrint();
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li><p>final关键字：</p>
+<ol>
+<li><p>final修饰的类，不能被继承</p>
+</li>
+<li><p>final修饰的方法，不能被重写，但是<strong>子类可以用父类中final修饰的方法</strong></p>
+</li>
+<li><p>final修饰的变量，不能被改变</p>
+<p>但final修饰引用类型变量(String、数组类型、接口、类)时，引用变量引用不可变，但是引用对象的内容可变</p>
+<pre><code class="lang-java">final class A &#123;
+    public int a = 3;
+&#125;
+
+public class Test &#123;
+    public static void main(String[] args) &#123;
+        A a = new A();
+        a.a = 3;
+        a.a = 4;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-14-抽象类"><a href="#2-14-抽象类" class="headerlink" title="2.14 抽象类"></a>2.14 抽象类</h2><ul>
+<li><p>使用<code>abstract</code>关键字修饰</p>
+<ol>
+<li>抽象类内可以包含普通变量、公共静态变量、普通方法、抽象方法</li>
+</ol>
+<pre><code class="lang-java">public abstract class Action &#123;
+
+    public String username;              //普通变量
+    int a = 3;
+
+    public static int age = 33;          //公共静态方法
+
+    public void myPrint() &#123;              //普通方法
+        System.out.println(&quot;nihao&quot;);
+    &#125;
+
+    public abstract void doSomething();  //抽象方法（不能含有方法体）
+
+&#125;
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>抽象类中的抽象方法不能被直接继承引用，必须经过重写！！！！！</p>
+</blockquote>
+<pre><code class="lang-java">public abstract class Action &#123;
+
+    public abstract void doSomething();  //抽象方法（不能含有方法体）
+
+&#125;
+
+class Son extends Action &#123;
+    @Override
+    public void doSomething() &#123;
+        System.out.println(&quot;nihao&quot;);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="2-15-接口"><a href="#2-15-接口" class="headerlink" title="2.15 接口"></a>2.15 接口</h2><ul>
+<li><p>使用<code>interface</code>关键字修饰，使用<code>implements</code>关键字修饰</p>
+<ol>
+<li><p>接口中的所有定义的方法都是<code>public abstract</code>抽象方法</p>
+<p>可以省略抽象方法关键字，系统会自动默认为抽象方法</p>
+</li>
+<li><p>接口中的变量只能是<code>public static final</code>类</p>
+<p>可以省略公有静态常量关键字，系统会自动默认为公有静态常量</p>
+</li>
+</ol>
+<pre><code class="lang-java">public interface UserDao &#123;
+    //等效于 public static final int age = 33;
+    int age = 33;
+
+    //等效于 public abstract void myPrint();
+    void myPrint();
+
+    //等效于 public abstract int insert();
+    int insert(A a);
+&#125;
+</code></pre>
+<pre><code class="lang-java">public class UserTest implements UserDao &#123;
+
+    //注意，继承接口中所有抽象方法都需要重写！！
+    public void myPrint() &#123;
+        System.out.println(&quot;nihao&quot;);
+    &#125;
+    public int insert(A a) &#123;
+        System.out.println(&quot;新增&quot;);
+    &#125;  
+&#125;
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>接口和抽象类的区别：</p>
+<ol>
+<li>接口要被子类实现，抽象类要被子类继承</li>
+<li>接口中变量全为公共静态变量，而抽象类中可有普通变量</li>
+<li>接口中全为方法的声明，而抽象类中可以有方法的实现</li>
+<li>接口中不可以有构造函数，而抽象类中可以有构造函数</li>
+<li>接口可多实现，而抽象类必须被单继承</li>
+<li>接口中方法全为抽象方法，而抽象类中也可以有非抽象方法</li>
+</ol>
+</blockquote>
+<h2 id="2-16-多态"><a href="#2-16-多态" class="headerlink" title="2.16 多态"></a>2.16 多态</h2><ul>
+<li><p>多态性指同一名字的方法可以有多种实现方式（即不同的方法体）</p>
+<ol>
+<li>利用<strong>重载</strong>，在同一类中定义多个同名的功能不同的方法</li>
+<li>通过子类对父类的方法进行<strong>重写</strong></li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>多态重写时处理规则：</p>
+<ol>
+<li>首先从对象所属类开始，寻找匹配的方法</li>
+<li>如果当前类中没有匹配的方法，则依此在父类、祖先类中寻找匹配方法</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-17-异常处理"><a href="#2-17-异常处理" class="headerlink" title="2.17 异常处理"></a>2.17 异常处理</h2><ul>
+<li><p>常见的异常类型：</p>
+<p>| 异常                          | 说明                                                  |<br>| ——————————————- | ——————————————————————————- |<br>| Exception                     | 异常层次结构的根类                                    |<br>| RuntimeException              | 许多 java.lang 异常的基类                             |<br>| ArithmeticException           | 算术错误情形，如以零作除数                            |<br>| IllegalArgumentException      | 方法接收到非法参数                                    |<br>| ArrayIndexOutOfBoundException | 数组大小小于或大于实际的数组大小                      |<br>| NullPointerException          | 尝试访问  null 对象成员                               |<br>| ClassNotFoundException        | 不能加载所需的类                                      |<br>| NumberFormatException         | 数字转化格式异常，比如字符串到 float 型数字的转换无效 |<br>| IOException                   | I/O 异常的根类                                        |<br>| FileNotFoundException         | 找不到文件                                            |<br>| FileNotFoundException         | 文件结束                                              |<br>| FileNotFoundException         | 线程中断                                              |</p>
+</li>
+</ul>
+<ul>
+<li><p>异常处理语句：</p>
+<pre><code class="lang-java">try &#123;
+    //语句1，可能产生异常的代码
+&#125;
+catch(ExceptionType e) &#123;
+    //语句2，捕获某种异常对象进行处理的代码
+    //catch语句至少有一个，可以有多个
+&#125;
+finally &#123;
+    //语句3，必然要执行的代码
+    //finally语句可以省略
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="2-18-Java的常用类库（包）"><a href="#2-18-Java的常用类库（包）" class="headerlink" title="2.18 Java的常用类库（包）"></a>2.18 Java的常用类库（包）</h2><ul>
+<li><p>包是一组相关的<strong>类</strong>和<strong>接口</strong>的集合，将类和接口分装在不同的包中，可以：</p>
+<ol>
+<li>避免重名类的冲突</li>
+<li>限定包之间类的访问权限</li>
+<li>更有效地管理众多的类和接口</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>使用包的过程：</p>
+<ol>
+<li>先建立与包名相同的文件夹</li>
+<li>再声明类或接口所在的包</li>
+<li>包中所含的类或接口的字节码文件存放于与包同名的文件夹中</li>
+<li>在程序中导入包中包含的类或接口</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>包的声明：</p>
+<ol>
+<li>包名与文件夹名字的字母大小写要一致</li>
+<li>该语句必须位于程序第一行，且一个源程序只能有一条<code>package</code>语句</li>
+<li>子包、父包、祖先包名之间用” . “隔开</li>
+</ol>
+<pre><code class="lang-java">package 包名;
+</code></pre>
+<pre><code class="lang-java">package mypackage;         //包的名字为mypackage
+
+public class Cpoint &#123;      //文件名为Cpoint.java
+    //类体
+&#125;
+
+class CCircle &#123;
+    //类体
+&#125;
+</code></pre>
+<pre><code class="lang-java">//Person接口和Teacher类属于subpack包
+//subpack是mypackage的子包
+
+package mypackage.subpack
+
+public interface Person &#123;
+    //接口体
+&#125;
+
+class Teacher implements Person &#123;
+    //类体
+&#125;
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>包中类或接口的引用：</p>
+<pre><code class="lang-java">/**引用格式**/
+包名.类名
+包名.接口名
+
+public class Cline extends mypackage.Cpoint&#123;
+    //类体
+&#125;
+
+public class Graduate implements mypackage.subpack.Person &#123;
+    //接口体
+&#125;
+
+//声明类对象
+mypackage.Cpoint point
+
+//实例化Cpoint类
+point = new my.package.Cpoint
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>导入包中的类或接口：</p>
+<pre><code class="lang-java">/**引用格式**/
+import 包名.类名
+import 包名.接口名
+import 包名.*
+
+//导入Java中的util包中的所有的类和接口
+import java.util.*
+</code></pre>
+</li>
+</ul>
+<h2 id="2-19-多线程"><a href="#2-19-多线程" class="headerlink" title="2.19 多线程"></a>2.19 多线程</h2><blockquote>
+<p>进程和线程的区别：</p>
+<ol>
+<li><p>进程：</p>
+<p>是指一个内存中运行的应用程序，每个进程都有一个独立的内存空间。并且进程互不共享内存空间，除非通过特殊手段。程序就是进程，例如：电脑的各个图标</p>
+</li>
+<li><p>线程：</p>
+<p>是进程中的一个执行路径，共享一个内存空间，线程之间可以自由切换，并发执行，一个进程最少有一个线程。</p>
+<p>线程实际上是在进程基础之上的进一步划分，一个进程启动之后，里面的若干执行路径又可以划分成若干个线程。</p>
+<p>用到哪一个哪一个被唤醒，例如：和多人聊天 sleep 生产者和消费者</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="2-20-文件IO操作"><a href="#2-20-文件IO操作" class="headerlink" title="2.20 文件IO操作"></a>2.20 文件IO操作</h2><ul>
+<li>在Java中将信息的输入与输出过程抽象为IO流</li>
+</ul>
+<ul>
+<li><p>Java标准输入输出：</p>
+<p>| 对象       | 说明                                                         |<br>| ————— | —————————————————————————————— |<br>| System.in  | 字节输入流InputStream类的一个对象<br /><code>public int read() throws IOException</code><br /><code>public int read(byte[] b) throws IOException</code> |<br>| System.out | 流PrintStream类的一个对象，其中print和println方法向屏幕输出数据 |<br>| System.err | 流PrintStream类的一个对象，用于向屏幕输出错误信息            |</p>
+</li>
+</ul>
+<ul>
+<li><p>输入流（InputStream）方法</p>
+<ol>
+<li><p>三个基本<code>read()</code>方法</p>
+<pre><code class="lang-java">int read();           //读一个字节返回
+int read(byte[]);     //将数据读入byte[]，返回读的字节数
+int read(byte[], int offset, int length);
+</code></pre>
+</li>
+<li><p>其他方法</p>
+<pre><code class="lang-java">void close();         //关闭流
+int available();      //返回未读的字节数
+long skip(long n);    //跳过n个字节
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>输出流（OutputStream）方法</p>
+<ol>
+<li><p>三个基本<code>write()</code>方法</p>
+<pre><code class="lang-java">void write(int);      //写一个字节
+void write(byte[]);   //写一个字节数组
+void write(byte[], int offset, int length);
+</code></pre>
+</li>
+<li><p>其他方法</p>
+<pre><code class="lang-java">void close();         //关闭流
+void flush();         //强行写
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>字节文件输入输出：</p>
+<ol>
+<li><p>创建文件输入输出流的对象</p>
+<p>FileInputStream构造方法：</p>
+<pre><code class="lang-java">/**基本格式**/
+public FileInputStream(String name) throws FileNotFoundExpection
+public FileInputStream(File file) throws FileNotFoundExpection
+
+/**创建对象**/
+FileInputStream rf = new FileInputStream(&quot;d:/java/pro1.java&quot;);
+</code></pre>
+<p>FileOutputStream构造方法：</p>
+<pre><code class="lang-java">/**基本格式**/
+public FileOutputStream(String name) throws FileNotFoundExpection
+public FileInputStream(File file) throws FileNotFoundExpection
+public FileOutputStream(String name, Boolean append) throws FileNotFoundExpection
+
+/**创建对象**/
+FileOutputStream wf = new FileOutputStream(&quot;d:/java/pro2.java&quot;);
+</code></pre>
+</li>
+<li><p>打开文件</p>
+</li>
+<li><p>用文件读写方法读写数据</p>
+<p>ead方法读取文件数据：</p>
+<pre><code class="lang-java">//返回从文件中读取的一个字节
+public int read() throws IOException
+
+public int read(byte[] b) throws IOException
+
+//返回读取的字节数，若b的长度为0，返回0
+public int read(byte[], int off, int len) throws IOException
+</code></pre>
+<p>write方法读取文件数据：</p>
+<pre><code class="lang-java">//向文件写入一个字节，b是int类型，所以将b的低8位写入
+public void write(int b) throws IOException
+
+public void write(byte[] b) throws IOException
+
+//将字节数组写入文件，其中off是b中的起始位置，len是写入的最大长度
+public void write(byte[] b, int off, int len) throws IOException
+</code></pre>
+</li>
+<li><p>关闭数据流</p>
+<pre><code class="lang-java">public void close() throws IOException
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>文件的基本用法：</p>
+<ol>
+<li><p>File给出的构造函数：</p>
+<pre><code class="lang-java">public File(String path) &#123;
+    //如果path是实际存在的路径，则该File对象表示的是目录
+    //如果path是文件名，则该File对象表示的是文件
+&#125;
+
+public File(String path, String name) &#123;
+    //path是路径名，name是文件名
+&#125;
+
+public File(File dir, String name) &#123;
+    //dir是路径名，name是文件名
+&#125;
+</code></pre>
+</li>
+<li><p>文件名的处理：</p>
+<pre><code class="lang-java">String getName();             //得到一个文件的名称（不包括路径）
+String getPath();             //得到一个文件的路径名
+String getAbsolutePath();     //得到一个文件的绝对路径名
+String getParent();           //得到一个文件的上一级目录名
+</code></pre>
+</li>
+<li><p>文件属性测试：</p>
+<pre><code class="lang-java">boolean exists();             //测试当前File对象所指示的文件是否存在
+boolean canWrite();           //测试当前文件是否可写
+boolean canRead();            //测试当前文件是否可读
+boolean isFile();             //测试当前文件是否是文件（不是目录）
+boolean isDirectory();        //测试当前文件是否是目录
+boolean createNewFile();      //创建文件
+boolean mkdir();              //创建文件夹
+boolean listFiles();          //列出文件夹下面的所有子文件
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-21-图形用户界面-GUI-设计"><a href="#2-21-图形用户界面-GUI-设计" class="headerlink" title="2.21 图形用户界面(GUI)设计"></a>2.21 图形用户界面(GUI)设计</h2><ul>
+<li>在Java中，GUI组成元素都放在<code>java.awt</code>和<code>java.Swing</code>包中，他们都包含了大量的类</li>
+</ul>
+<ul>
+<li><p>GUI构成包括：</p>
+<p>| 成分               | 介绍                                                         |<br>| :————————- | —————————————————————————————— |<br>| 容器（container）  | 用来组织和容纳其他界面成分和元素的组件<br />Java提供了相应的容器类，包括：框架(JFrame/Frame)、面板(JPanel/Panel)、滚动面板(IScrollPanel/ScrollPanel)等 |<br>| 组件（components） | 组件是GUI的基本单位，里面不再包含其他成分<br />组件是一个可以以图形化方式显示并进行交互的对象，包括：按钮、标签等等<br />组件不能独立显示，必须将组件放到一定的容器里才能显示 |<br>| 用户自定义成分     | 只起到显示结果、装饰美化的作用<br />不能响应用户的动作，不具有交互功能 |</p>
+</li>
+</ul>
+<ul>
+<li><p>使用AWT步骤：</p>
+<ol>
+<li>创建容器组件（如Frame、Panel等），在容器中添加需要的其他组件（如Button、Label、TextField、Checkbox等）</li>
+<li>创建布局管理器，用来自动设置容器中组件的位置和大小</li>
+<li>使用委派事件模型来响应用户操作，实现用户和程序的交互</li>
+</ol>
+<p>| 类名      | 常用构造方法                                 | 主要功能                                   |<br>| ————- | —————————————————————— | ————————————————————— |<br>| Label     | Label(String title)                          | 标签，主要用来显示信息                     |<br>| TextField | TextFiled()<br />TextFiled(int m)            | 文本框，用来接收用户输入，只能接收一行输入 |<br>| TextArea  | TextArea()<br />TextArea(int rows, int cols) | 文本区域，用来接收用户输入，可接收多行输入 |<br>| Button    | Button()<br />Button(String title)           | 按钮，用来捕捉用户操作的简单组件           |<br>| Checkbox  | Checkbox()<br />Checkbox(String title)       | 复选框，用于多选项输入                     |</p>
+</li>
+</ul>
+<ul>
+<li><p>使用Swing步骤：</p>
+<ol>
+<li><p>用来构成一个图形化界面的“各种元素”</p>
+<p>如：按钮、标签、树、表格、框架等</p>
+</li>
+<li><p>按<strong>结构</strong>划分，通常有两种类型：</p>
+<p>| 类型          | 说明                                                         |<br>| ——————- | —————————————————————————————— |<br>| Window 类     | 包括一些“<strong>可独立显示</strong>”的组件<br />指无需托付在其他组件上就可以直接显示，如JFrame类等 |<br>| JComponent 类 | 包括一些“<strong>不可独立显示</strong>”的组件<br />指必须依靠可独立显示的组件才能显示，如文本框、按钮等 |</p>
+</li>
+<li><p>按<strong>功能</strong>划分，通常有三种类型：</p>
+<p>| 类型                                         | 说明                                                         |<br>| —————————————————————— | —————————————————————————————— |<br>| 顶层组件/容器                                | 可理解为Window类，指能独立显示的组件<br />如：JFrame、JApplet、JDialog、JWindow |<br>| 中间组件<br />（分为中间容器和特殊中间组件） | 指可充当载体，但不能独立显示的组件，可承载基本组件，但同时必须依托顶层组件<br />如：JPanel、JScrollPane、JSplitPane、JtoolBar<br />其中特殊容器仅起到美化和专业化作用<br />如：JInternalFrame、JLayeredPane、JRootPane |<br>| 基本组件                                     | 指主要用与实现人机交互的组件，不能独立存在<br />如：JButton、JComboCox、JList、JMenu、JSlider、JTextField |</p>
+</li>
+</ol>
+<pre><code class="lang-java">/**基本组件**/
+import javax.swing.*;
+
+public class HelloWorld &#123;
+    public static void main(String[] args) &#123;
+        JFrame frame = new JFrame(&quot;测试窗口&quot;);              //创建顶层容器
+        JPanel pane = new JPanel();                        //创建中间容器
+        frame.setContentPane(pane);                  //将中间容器依托在顶层容器
+        JButton button = new JButton(&quot;这是一个测试按钮&quot;);     //创建一个基本组件
+        pane.add(button);                            //将基本组件依托在中间容器
+        frame.setBisible(true);
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>大多数Java程序都使用JFrame组件作为顶层容器，一般也有使用JDialog和JApplet</p>
+<p>注：JDialog 一般作为弹出窗口使用，而 JApplet 一般作为嵌在网页中的小程序框架使用</p>
+</blockquote>
+<h2 id="2-22-事件"><a href="#2-22-事件" class="headerlink" title="2.22 事件"></a>2.22 事件</h2><ul>
+<li><p>低级事件</p>
+<pre><code class="lang-java">ComponentEvent        //组件事件：组件尺寸的变化，移动
+ContainerEvent        //容器事件：组件增加，移动）
+WindowEvent           //窗口事件：关闭窗口，窗口闭合，图标化 
+FocusEvent            //焦点事件：焦点的获得和丢失
+KeyEvent              //键盘事件：键按下、释放
+MouseEvent            //鼠标事件：鼠标单击，移动
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>高级事件（语义事件）</p>
+<pre><code class="lang-java">ActionEvent           //动作事件：按钮按下，TextField中按Enter键
+AdjustmentEvent       //调节事件：在滚动条上移动滑块以调节数值
+ItemEvent             //项目事件：选择项目，不选择&quot;项目改变&quot;
+TextEvent             //文本事件，文本对象改变
+</code></pre>
+</li>
+</ul>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+  <div class="article-copyright hairline">
+    <p>
+      本作品采用  <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)</a> 进行许可。
+    </p>
+  </div>
+  
+
+    
+
+    
+<nav class="article-nav">
+  
+  
+    <a href="/2023/03/undefined/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=Study - Java期末速成 - Yanzongs.cn&url=http%3A%2F%2Fexample.com%2F2023%2F04%2FStudy-JavaKnowledge%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=Study - Java期末速成 - Yanzongs.cn&u=http%3A%2F%2Fexample.com%2F2023%2F04%2FStudy-JavaKnowledge%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=Study - Java期末速成 - Yanzongs.cn&url=http://example.com/2023/04/Study-JavaKnowledge/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+<section class="comments">
+    <div id="valine-container"></div>
+</section>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+
+
+
+
+
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BOOK/">BOOK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CREATION/">CREATION</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HEXO/">HEXO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IC-FPGA/">IC & FPGA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PROJRECT/">PROJRECT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/STUDY/">STUDY</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C51/" rel="tag">C51</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCU/" rel="tag">MCU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Verilog/" rel="tag">Verilog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%82%9F/" rel="tag">感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%87%E5%AF%BC%E6%89%8B%E5%86%8C/" rel="tag">指导手册</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%92%9F%E6%A0%91/" rel="tag">时钟树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B/" rel="tag">电子信息工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%97%E8%AF%8D/" rel="tag">诗词</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/Study-JavaKnowledge/">Study - Java期末速成</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/undefined/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/FPGA%20-%20VerilogGrammar/">FPGA - Verilog语法</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Book-DomesticThird/">Book - 《羊道·春牧场》简评</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/Study-AnalogElectronics/">Study - 模电亿些知识点总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Yanzongs.cn &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
