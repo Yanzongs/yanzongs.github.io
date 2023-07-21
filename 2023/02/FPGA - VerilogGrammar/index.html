@@ -249,30 +249,36 @@
 <p>硬件描述语言Verilog一些语法速记</p>
 </blockquote>
 <span id="more"></span>
+<p><br></p>
 <pre><code class="lang-verilog">module  hello();
     initial begin
         $display(&quot;Hello World.\n&quot;);
     end
 endmodule
 </code></pre>
-<p>1 Verilog描述</p>
-<p>1.1 可综合描述：能够将描述转化(compile)为基本的数字电路底层cell</p>
+<h2 id="Verilog描述"><a href="#Verilog描述" class="headerlink" title="Verilog描述"></a>Verilog描述</h2><h3 id="可综合描述："><a href="#可综合描述：" class="headerlink" title="可综合描述："></a>可综合描述：</h3><ul>
+<li>能够将描述转化(compile)为基本的数字电路底层cell</li>
+</ul>
 <p>（综合后在IC芯片、FPGA上实现）</p>
-<p>1.2 不可综合描述：不能够将描述转化(compile)为基本的数字电路底层cell</p>
-<p>2 标识符</p>
-<p>· 规则：a.由字符、数字、下划线组成</p>
-<p>​             b.首字母必须是字母或者下划线</p>
-<p>​             c.标识符是区分大小写的</p>
-<p>· 举例：moudule、define、parameter</p>
+<h3 id="不可综合描述："><a href="#不可综合描述：" class="headerlink" title="不可综合描述："></a>不可综合描述：</h3><ul>
+<li>不能够将描述转化(compile)为基本的数字电路底层cell</li>
+</ul>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><h3 id="规则："><a href="#规则：" class="headerlink" title="规则："></a>规则：</h3><p>a.由字符、数字、下划线组成</p>
+<p>b.首字母必须是字母或者下划线</p>
+<p>c.标识符是区分大小写的</p>
+<ul>
+<li>举例：moudule、define、parameter</li>
+</ul>
 <blockquote>
 <p>​     信号名字建议跟信号功能对应：</p>
 <p>rstn、clk_core、mem_cs、mem_we、mem_dout、mem_din、men_addr                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </p>
 </blockquote>
-<p>3 数据物理类型</p>
-<p>3.1 “线”性数据</p>
-<p>· 用于连续赋值语句(<code>assign</code>)描述组合逻辑或<code>module</code>间的信号连接线</p>
-<p>3.1.1 wire</p>
-<p>· 线性、可综合</p>
+<h2 id="数据物理类型"><a href="#数据物理类型" class="headerlink" title="数据物理类型"></a>数据物理类型</h2><h3 id="“线”性数据"><a href="#“线”性数据" class="headerlink" title="“线”性数据"></a>“线”性数据</h3><ul>
+<li>用于连续赋值语句(<code>assign</code>)描述组合逻辑或<code>module</code>间的信号连接线</li>
+</ul>
+<h4 id="wire"><a href="#wire" class="headerlink" title="wire"></a>wire</h4><ul>
+<li>线性、可综合</li>
+</ul>
 <pre><code class="lang-verilog">wire       a;       //1bit位宽
 wire [3:0] b;       //4bit位宽
 wire [7:0] c;       //8bit位宽
@@ -280,16 +286,19 @@ wire [7:0] c;       //8bit位宽
 assign a = 1&#39;b0;   //连续赋值语句
 assign c = 8&#39;h5a;
 </code></pre>
-<p>3.1.2 tri0/tri1</p>
-<p>· 带下拉/上拉电阻的线性、不可综合</p>
-<p>·没有驱动时，会有默认值0/1</p>
+<h4 id="tri0-tri1"><a href="#tri0-tri1" class="headerlink" title="tri0/tri1"></a>tri0/tri1</h4><ul>
+<li><p>带下拉/上拉电阻的线性、不可综合</p>
+</li>
+<li><p>没有驱动时，会有默认值0/1</p>
+</li>
+</ul>
 <pre><code class="lang-verilog">tri0       s0;
 tri [20:0] s1;
 </code></pre>
-<p>3.2 寄存器</p>
-<p>· 用于过程赋值语句(<code>always</code>、<code>initial</code>)描述组合逻辑或时序逻辑</p>
-<p>3.2.1 wire</p>
-<pre><code class="lang-verilog">wire [3:0] din;
+<h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><ul>
+<li>用于过程赋值语句(<code>always</code>、<code>initial</code>)描述组合逻辑或时序逻辑</li>
+</ul>
+<h4 id="wire-1"><a href="#wire-1" class="headerlink" title="wire"></a>wire</h4><pre><code class="lang-verilog">wire [3:0] din;
 
 reg [3:0] d0;    //4bit
 reg       d1;    //1bit
@@ -307,8 +316,7 @@ end
 <p>注意：出现reg时不一定全是描述寄存器，还可能是描述某种组合逻辑！！</p>
 <p>区分方法：当捕捉上升沿时(<code>@posedge clk</code>)为描述寄存器，当捕捉敏感变量列表时(<code>@(*)</code>)为描述组合逻辑。</p>
 </blockquote>
-<p>3.2.2 real、integer、time、realtime</p>
-<pre><code class="lang-verilog">real float;          //类似于定义C语言的一个浮点数
+<h4 id="real、integer、time、realtime"><a href="#real、integer、time、realtime" class="headerlink" title="real、integer、time、realtime"></a>real、integer、time、realtime</h4><pre><code class="lang-verilog">real float;          //类似于定义C语言的一个浮点数
 integer a;           //类似于定义C语言的一个整数
                      //等价于reg [31:0]
 time last_chng;      //打印Verilog仿真时间
@@ -317,26 +325,27 @@ realtime rtime;
 <blockquote>
 <p>在可综合Verilog中，很少使用以上类型，常常多用于<strong>行为级建模(behavior model)</strong></p>
 </blockquote>
-<p>4 数据类型</p>
-<p>4.1 一维标量类型（常量）</p>
-<p>4.1.1 整数型</p>
-<p>· 需要明确指定数据位宽</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="一维标量类型（常量）"><a href="#一维标量类型（常量）" class="headerlink" title="一维标量类型（常量）"></a>一维标量类型（常量）</h3><h4 id="整数型"><a href="#整数型" class="headerlink" title="整数型"></a>整数型</h4><ul>
+<li>需要明确指定数据位宽</li>
+</ul>
 <pre><code class="lang-verilog">16&#39;d100;           //10进制表示的“100”
 16&#39;h64;            //16进制表示的“100”
 16&#39;b0110_0100;     //二进制表示的“100”
 </code></pre>
-<p>4.1.2 实数型</p>
-<p>· 可综合Verilog目前不可用</p>
+<h4 id="实数型"><a href="#实数型" class="headerlink" title="实数型"></a>实数型</h4><ul>
+<li>可综合Verilog目前不可用</li>
+</ul>
 <pre><code class="lang-verilog">1.11
 2.22
 </code></pre>
-<p>4.1.3 字符型</p>
-<p>· 每个字符按8bit ASCII码的整型存储</p>
+<h4 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h4><ul>
+<li>每个字符按8bit ASCII码的整型存储</li>
+</ul>
 <pre><code class="lang-verilog">&quot;verilog&quot;   //占用56个bits
 </code></pre>
-<p>4.2 一维标量类型（变量）</p>
-<p>4.2.1 整数型</p>
-<p>· 需要明确指定数据位宽</p>
+<h3 id="一维标量类型（变量）"><a href="#一维标量类型（变量）" class="headerlink" title="一维标量类型（变量）"></a>一维标量类型（变量）</h3><h4 id="整数型-1"><a href="#整数型-1" class="headerlink" title="整数型"></a>整数型</h4><ul>
+<li>需要明确指定数据位宽</li>
+</ul>
 <pre><code class="lang-verilog">wire        [3:0] da,db;    //unsigned  
 wire signed [9:0] s0;       //signed
 wire        [15:0] c0;
@@ -344,16 +353,16 @@ wire        [15:0] c0;
 assign c0 = &quot;ab&quot;;           //16&#39;h6162
 assign da = db + 4&#39;d1;
 </code></pre>
-<p>4.2.2 实数型</p>
-<p>· 可综合Verilog目前不可用</p>
+<h4 id="实数型-1"><a href="#实数型-1" class="headerlink" title="实数型"></a>实数型</h4><ul>
+<li>可综合Verilog目前不可用</li>
+</ul>
 <pre><code class="lang-verilog">real f0,f1;
 always@(*) begin
     if(da==0) f0 = 1.11;
     else      f0 = 2.22;
 end
 </code></pre>
-<p>4.2 多维标量类型（变量）</p>
-<pre><code class="lang-verilog">wire [3:0] array_0 [0:7];          //8个4bit数组成的数组
+<h3 id="多维标量类型（变量）"><a href="#多维标量类型（变量）" class="headerlink" title="多维标量类型（变量）"></a>多维标量类型（变量）</h3><pre><code class="lang-verilog">wire [3:0] array_0 [0:7];          //8个4bit数组成的数组
 reg [13:0] array_1[0:255];         //256个14bit数组成的数组
 integer    array_2[0:15];          //16个整数组成的数组
 reg[7:0]   array_3[0:15][0:255];   //多维数组
@@ -365,41 +374,44 @@ always@(posedge clk) begin
     array_1[129] &lt;= &#123;6&#39;h0,array_3[15][255]&#125;;
 end
 </code></pre>
-<p>5 运算符</p>
-<p>5.1 逻辑运算符</p>
-<p>5.1.1 按位逻辑运算</p>
-<p>· &amp; （and）、|（or）、^（xor）、~（inv）</p>
-<p>5.1.2 整体逻辑操作</p>
-<p>· &amp;&amp; 、|| 、! 、== 、!=</p>
-<p>5.2 条件运算符（描述MUX）</p>
-<pre><code class="lang-verilog">wire [31:]  a0,a1;
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><h4 id="按位逻辑运算"><a href="#按位逻辑运算" class="headerlink" title="按位逻辑运算"></a>按位逻辑运算</h4><ul>
+<li>&amp; （and）、|（or）、^（xor）、~（inv）</li>
+</ul>
+<h4 id="整体逻辑操作"><a href="#整体逻辑操作" class="headerlink" title="整体逻辑操作"></a>整体逻辑操作</h4><ul>
+<li>&amp;&amp; 、|| 、! 、== 、!=</li>
+</ul>
+<h3 id="条件运算符（描述MUX）"><a href="#条件运算符（描述MUX）" class="headerlink" title="条件运算符（描述MUX）"></a>条件运算符（描述MUX）</h3><pre><code class="lang-verilog">wire [31:]  a0,a1;
 wire        sel;
 wire [31:0] out;
 
 assign out = (sel)?a0:a1;
 </code></pre>
-<p>5.3 bit位选择[ ]、拼接{ }</p>
-<pre><code class="lang-verilog">wire [31:0] a0,a1;
+<h3 id="bit位选择-、拼接"><a href="#bit位选择-、拼接" class="headerlink" title="bit位选择[ ]、拼接{ }"></a>bit位选择[ ]、拼接{ }</h3><pre><code class="lang-verilog">wire [31:0] a0,a1;
 wire [17:0] out0,out1;
 
 //--- out0 == out1
 assign out0 = &#123;a1[31],a0[31],a1[0+:8],a0[15:8]&#125;;
 assign out1 = &#123;a1[31],a0[31],a1[7:0],a0[8+:8]&#125;;
 </code></pre>
-<p>5.4 算数运算符</p>
-<p>· +、-、*、&lt;、&gt;、&lt;=、&gt;=、/、%</p>
+<h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><ul>
+<li>+、-、*、&lt;、&gt;、&lt;=、&gt;=、/、%</li>
+</ul>
 <blockquote>
 <p>1.为了保证计算结果不溢出（超过bit的数值表示范围），需要仔细定义数据的位宽</p>
 <p>2.记住 /、% 慎用</p>
 </blockquote>
-<p>6 条件语句</p>
-<p>6.1 if-else</p>
-<p>· 使用方法与C语言相似</p>
-<p>6.2 if-else if-else</p>
-<p>· 使用方法与C语言相似</p>
-<p>6.3 case、casez、casex</p>
-<p>· <strong>casez和casex非必要不使用</strong></p>
-<p>· 使用方法与C语言相似</p>
+<h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><h3 id="if-else"><a href="#if-else" class="headerlink" title="if-else"></a>if-else</h3><ul>
+<li>使用方法与C语言相似</li>
+</ul>
+<h3 id="if-else-if-else"><a href="#if-else-if-else" class="headerlink" title="if-else if-else"></a>if-else if-else</h3><ul>
+<li>使用方法与C语言相似</li>
+</ul>
+<h3 id="case、casez、casex"><a href="#case、casez、casex" class="headerlink" title="case、casez、casex"></a>case、casez、casex</h3><ul>
+<li><p><strong>casez和casex非必要不使用</strong></p>
+</li>
+<li><p>使用方法与C语言相似</p>
+</li>
+</ul>
 <p><br></p>
 <hr>
 <center>ENDING</center>
